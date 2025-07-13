@@ -1,0 +1,53 @@
+:root {
+  --bg-color: #121212;
+  --primary-color: #bb86fc;
+  --text-color: #ffffff;
+  --hover-color: #ffb74d;
+  --secondary-color: #1e1e1e;
+}
+.contact {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 80px 20px;
+  text-align: center;
+}
+.section-title {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+.contact-text {
+  font-size: 1.2rem;
+  color: #cccccc;
+  margin-bottom: 30px;
+}
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: var(--hover-color);
+  color: #000;
+}
+.cta-button.secondary {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.cta-button.secondary:hover {
+  background-color: var(--hover-color);
+  color: #000;
+}
