@@ -1,13 +1,7 @@
-:root {
-  --bg-color: #121212;
-  --primary-color: #bb86fc;
-  --text-color: #ffffff;
-  --accent-color: #03dac6;
-  --hover-color: #ffb74d;
-}
+
 .hero {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+
+  color:  #ffffff;
   padding: 100px 20px;
   text-align: center;
   min-height: 40vh;
@@ -30,7 +24,7 @@
   color: #cfcfcf;
 }
 .cta-button {
-  background-color: var(--primary-color);
+  background-color:  #bb86fc;
   color: #fff;
   padding: 12px 30px;
   font-size: 1rem;
@@ -42,7 +36,7 @@
 }
 
 .cta-button:hover {
-  background-color: var(--hover-color);
+  background-color:purple;
   color: #000;
 }
 @media (max-width: 768px) {

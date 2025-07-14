@@ -1,19 +1,12 @@
-:root {
-  --bg-color: #121212;
-  --primary-color: #bb86fc;
-  --text-color: #ffffff;
-  --hover-color: #ffb74d;
-  --secondary-color: #1e1e1e;
-}
 .contact {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+
+  color:  #ffffff;
   padding: 80px 20px;
   text-align: center;
 }
 .section-title {
   font-size: 2.5rem;
-  color: var(--primary-color);
+  color: #bb86fc;
   margin-bottom: 20px;
 }
 .contact-text {
@@ -29,7 +22,7 @@
 }
 
 .cta-button {
-  background-color: var(--primary-color);
+
   color: #fff;
   padding: 12px 24px;
   font-size: 1rem;
@@ -39,15 +32,15 @@
 }
 
 .cta-button:hover {
-  background-color: var(--hover-color);
+  background-color: white;
   color: #000;
 }
 .cta-button.secondary {
-  background-color: var(--secondary-color);
-  border: 1px solid var(--primary-color);
+  background-color:  #1e1e1e;
+  border: 1px solid rgb(230, 159, 230);
 }
 
 .cta-button.secondary:hover {
-  background-color: var(--hover-color);
+  background-color: white ;
   color: #000;
 }

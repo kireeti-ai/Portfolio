@@ -1,14 +1,7 @@
-:root {
-  --bg-color: #121212;
-  --primary-color: #bb86fc;
-  --text-color: #ffffff;
-  --card-bg: #1e1e1e;
-  --hover-color: #ffb74d;
-}
 .skills {
-  background-color: var(--bg-color);
+  
   padding: 80px 20px;
-  color: var(--text-color);
+  color: white;
 }
 .container {
   max-width: 960px;
@@ -18,7 +11,7 @@
 .section-title {
   text-align: center;
   font-size: 2.5rem;
-  color: var(--primary-color);
+  color: plum;
   margin-bottom: 40px;
 }
 .skills-grid {
@@ -27,7 +20,8 @@
   gap: 20px;
 }
 .skill-item {
-  background-color: var(--card-bg);
+  margin-top: 30px;
+  background-color: plum;
   padding: 16px;
   text-align: center;
   border-radius: 12px;
@@ -38,7 +32,7 @@
 }
 
 .skill-item:hover {
-  background-color: var(--hover-color);
+  background-color:white;
   color: #000;
   transform: scale(1.05);
 }
