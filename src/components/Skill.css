@@ -32,7 +32,7 @@
 }
 
 .skill-item:hover {
-  background-color:white;
+  background-color:wh;
   color: #000;
   transform: scale(1.05);
 }

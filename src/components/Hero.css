@@ -1,4 +1,10 @@
+:root {
+  --bg-color: #121212;
 
+
+  --accent-color: #03dac6;
+
+}
 .hero {
 
   color:  #ffffff;
