@@ -5,13 +5,13 @@ const projectData = [
     {
         title: "SnapDish",
         description: "A vibrant social media platform for food enthusiasts. Users can share photos of their meals, discover new recipes, and connect with a community of food lovers.",
-        image: "public/Snap_dish.png",
+        image: './Snap_dish.png',
         codeLink:"https://github.com/kireeti-ai/SnapDish" 
     },
     {
         title: "Pothole Detection System",
         description: "An early-stage civic technology project aimed at detecting and reporting potholes from images or video streams. The goal is to improve road safety and assist in timely road maintenance.",
-        image: "public/potHole.jpg", 
+        image: './potHole.jpg', 
      
         codeLink: "#"  
     }
