@@ -61,12 +61,11 @@ html {
   }
 }
 
-@media (max-width: 480px) {
-  .nav-link {
-    font-size: 0.8rem;
-  }
-
-  .nav {
-    justify-content: flex-end;
-  }
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    .menu-icon {
+        display: block;
+    }
 }

@@ -37,12 +37,7 @@
   transform: scale(1.05);
 }
 @media (max-width: 768px) {
-  .section-title {
-    font-size: 2rem;
-  }
-
-  .skill-item {
-    font-size: 0.95rem;
-    padding: 12px;
-  }
+    .skill-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

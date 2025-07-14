@@ -72,20 +72,8 @@
   color: #000;
 }
 @media (max-width: 768px) {
-  .section-title {
-    font-size: 2rem;
-  }
-
-  .project-card img {
-    height: 160px;
-  }
-
-  .project-content p {
-    font-size: 0.95rem;
-  }
-
-  .project-links a {
-    font-size: 0.85rem;
-    padding: 6px 10px;
-  }
+    .project-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }

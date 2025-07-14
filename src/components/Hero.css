@@ -1,10 +1,4 @@
-:root {
-  --bg-color: #121212;
 
-
-  --accent-color: #03dac6;
-
-}
 .hero {
 
   color:  #ffffff;
@@ -46,16 +40,10 @@
   color: #000;
 }
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.2rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.2rem;
-  }
-
-  .cta-button {
-    padding: 10px 20px;
-    font-size: 0.95rem;
-  }
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
 }
