@@ -15,7 +15,7 @@ const Contact = () => {
             Email 
           </a>
           <a
-            href="https://www.linkedin.com/in/kireeti"
+            href="https://www.linkedin.com/in/kireeti-v-4aa6a71b1/"
             className="cta-button secondary"
             target="_blank"
             rel="noopener noreferrer"
