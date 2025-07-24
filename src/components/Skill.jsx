@@ -3,7 +3,7 @@ import './Skill.css';
 
 const Skill = () => {
   const skills = {
-    'Programming Languages': [ 'Python', 'C++','JavaScript', 'C'],
+    'Programming Languages': [ 'Python', 'C++','Java', 'C'],
     'Frontend': ['React.Js', 'HTML','CSS'],
     // 'Backend': ['Node.js', 'Flask', 'Express.js', 'FastAPI'],
     'Databases': ['MongoDB', 'MySQl'],
