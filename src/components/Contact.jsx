@@ -114,10 +114,10 @@ const Contact = () => {
             <a href="mailto:vkireeti16@gmail.com" className="contact-link" target="_blank" rel="noopener noreferrer">
               Email
             </a>
-            <a href="https://www.linkedin.com/in/kireeti-v-4aa6a71b1/" className="contact-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/kireeti-v" className="contact-link" target="_blank" rel="noopener noreferrer">
               LinkedIn
             </a>
-            <a href="https://github.com/kireeti-ai" className="contact-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.github.com/kireeti-ai" className="contact-link" target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
           </div>
