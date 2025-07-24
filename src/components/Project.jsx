@@ -9,11 +9,12 @@ const projectData = [
         codeLink:"https://github.com/kireeti-ai/SnapDish" 
     },
     {
-        title: "Pothole Detection System",
-        description: "An early-stage civic technology project aimed at detecting and reporting potholes from images or video streams. The goal is to improve road safety and assist in timely road maintenance.",
-        image: './potHole.jpg', 
+        title: "Mobile Network Simulation System",
+        description:  " Models cellular network components like zones, towers, and users to simulate dynamic connectivity, call routing, and network switching. ",
+
+        image: './project.jpeg', 
      
-        codeLink: "#"  
+        codeLink: "https://github.com/kireeti-ai/Network-simulation"  
     }
 
 ];

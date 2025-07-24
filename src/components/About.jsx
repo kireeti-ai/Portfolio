@@ -11,8 +11,7 @@ const About = () => {
             <p>
 I’m  Kireeti, a pre-final year B.Tech student at Amrita Vishwa Vidyapeetham, Coimbatore, with a strong interest in full stack web development.
 
-I enjoy transforming ideas into responsive user interfaces and building efficient backend systems. I’m currently looking for opportunities to apply my skills, contribute meaningfully to real-world projects, and grow as a developer.
-            </p>
+Beyond full-stack development, I have a strong passion for Machine Learning and Artificial Intelligence. I'm actively exploring concepts like deep learning, computer vision, and natural language processing, gaining hands-on experience with frameworks such as TensorFlow and PyTorch. My goal is to apply these cutting-edge technologies to build intelligent and impactful applications, and I'm eager to contribute to projects that push the boundaries of AI.            </p>
           </div>
         </div>
       </div>

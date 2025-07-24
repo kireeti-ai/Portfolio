@@ -21,26 +21,3 @@
   flex-wrap: wrap;
 }
 
-.cta-button {
-
-  color: #fff;
-  padding: 12px 24px;
-  font-size: 1rem;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: white;
-  color: #000;
-}
-.cta-button.secondary {
-  background-color:  #1e1e1e;
-  border: 1px solid rgb(230, 159, 230);
-}
-
-.cta-button.secondary:hover {
-  background-color: white ;
-  color: #000;
-}
