@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Header.css';
+import './Header.css'; // This should be imported AFTER any global CSS like App.css
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -53,8 +53,6 @@ const Header = () => {
           <li><a href="#skills-section-unique" onClick={closeMobileMenu} className={`nav-link ${activeSection === 'skills-section-unique' ? 'active' : ''}`}>Skills</a></li>
           <li><a href="#projects" onClick={closeMobileMenu} className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`}>Projects</a></li>
           <li><a href="#contact" onClick={closeMobileMenu} className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}>Contact</a></li>
-        
-          <li><a href="/Kireeti_Resume.pdf" target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu} className="nav-link">Resume</a></li>
         </ul>
       </nav>
 
@@ -64,7 +62,7 @@ const Header = () => {
       >
         <span></span>
         <span></span>
-        <span></span>
+        <span></span> 
       </div>
 
       <nav className={`mobile-nav ${mobileMenuOpen ? 'open' : ''}`}>
@@ -73,8 +71,6 @@ const Header = () => {
           <li><a href="#about" onClick={closeMobileMenu} className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}>About</a></li>
           <li><a href="#skills-section-unique" onClick={closeMobileMenu} className={`nav-link ${activeSection === 'skills-section-unique' ? 'active' : ''}`}>Skills</a></li>
           <li><a href="#projects" onClick={closeMobileMenu} className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`}>Projects</a></li>
-          {/* This link was already correct */}
-          <li><a href="/Kireeti_Resume.pdf" target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu} className="nav-link">Resume</a></li>
           <li><a href="#contact" onClick={closeMobileMenu} className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}>Contact</a></li>
         </ul>
       </nav>

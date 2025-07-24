@@ -20,6 +20,9 @@ const Hero = () => {
           <a href="#projects" className="cta-button primary-cta">
             Explore My Work
           </a>
+<a href="/kireeti_resume.pdf" target="_blank" rel="noopener noreferrer" className="cta-button primary-cta">
+  View Resume
+</a>
         </div>
       </div>
     </section>
