@@ -5,7 +5,7 @@ const Skill = () => {
   const skills = {
     'Programming Languages': [ 'Python', 'C++','Java', 'C'],
     'Frontend': ['React.Js', 'HTML','CSS'],
-    // 'Backend': ['Node.js', 'Flask', 'Express.js', 'FastAPI'],
+    'Backend': ['Node.js', 'Express.js'],
     'Databases': ['MongoDB', 'MySQl'],
     'Dev Tools': ['Git', 'GitHub', 'Docker', 'Vercel', 'Jupyter Notebook', 'Kaggle'],
     'Machine Learning': ['Supervised Learning', 'Unsupervised Learning'],
