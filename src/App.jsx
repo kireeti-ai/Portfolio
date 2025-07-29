@@ -7,19 +7,22 @@ import Skills from './components/Skill';
 import Projects from './components/Project';
 import Contact from './components/Contact';
 import VantaBackground from './components/VantaBackground';
-
+import ScrollToTopButton from './components/ScrollToTopButton';
 function App() {
   return (
     <div className="App">
       <VantaBackground /> 
       <Header />
       <main>
+  
         <Hero />
         <About />
         <Skills />
         <Projects />
         <Contact />
+        
       </main>
+      <ScrollToTopButton /> 
     </div>
   );
 }

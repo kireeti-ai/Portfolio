@@ -9,7 +9,7 @@ const Skill = () => {
     'Databases': ['MongoDB', 'MySQl'],
     'Dev Tools': ['Git', 'GitHub', 'Docker', 'Vercel', 'Jupyter Notebook', 'Kaggle'],
     'Machine Learning': ['Supervised Learning', 'Unsupervised Learning'],
-    'Deep Learning': ['Neural Networks', 'TensorFlow', 'PyTorch'],
+    'Deep Learning': ['Neural Networks', 'Convolutional Neural Networks','TensorFlow'],
     'AI/ML Frameworks': ['Scikit-learn'],
     'Data Science': ['NumPy', 'Pandas'],
 

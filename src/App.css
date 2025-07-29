@@ -1,12 +1,11 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
 html {
   scroll-behavior: smooth;
 }
-body {
 
-    background-repeat: repeat;
-    background-color: #f8f8f8;
+body {
+    background-color: #1a1a1a; 
     font-family: 'Montserrat', sans-serif; 
     color: #e0e0e0; 
 }
@@ -19,13 +18,13 @@ body {
 }
 
 .nav-link:hover {
-    color: #ffffff; 
+    color: #4da6ff; 
     transform: translateY(-2px); 
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .cta-button {
-    background-color: #bb86fc; 
+    background-color: #007bff; 
     color: #fff;
     padding: 12px 25px;
     border-radius: 5px;
@@ -35,15 +34,16 @@ body {
 }
 
 .cta-button:hover {
-    background-color: #9c68e0; 
+    background-color: #0056b3; 
     transform: translateY(-2px); 
 }
 
 .contact-links a:hover {
-    background-color: #9c68e0; 
+    background-color: #0056b3;
     color: #fff;
     transform: translateY(-2px);
 }
+
 .vanta-background {
   position: fixed;
   top: 0;
@@ -52,16 +52,18 @@ body {
   height: 100vh;
   z-index: -1; 
 }
+
 .App {
   position: relative;
   z-index: 1;
 }
+
 .hero h1 {
-  color: #00bfff; 
-}
+  color: #4da6ff;}
+
 .button-primary {
-  background-color: #00bfff;
-  color: #121212; /* Dark text on the bright button */
+  background-color: #007bff;
+  color: #ffffff; 
   font-weight: bold;
   border: none;
   padding: 12px 24px;
@@ -70,8 +72,9 @@ body {
 }
 
 .button-primary:hover {
-  background-color: #009acd;
+  background-color: #0056b3;
 }
+
 a {
   color: #e0e0e0;
   text-decoration: none;
@@ -79,12 +82,13 @@ a {
 }
 
 a:hover, .header .active {
-  color: #00bfff; 
+  color: #4da6ff; 
 }
+
 .skill-level {
-    background-color: #00bfff;
+    background-color: #007bff;
 }
 
 .skill-icon {
-    color: #00bfff;
+    color: #4da6ff;
 }

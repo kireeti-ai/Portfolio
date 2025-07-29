@@ -1,21 +1,34 @@
 import React from 'react';
-import './About.css'
+import { motion } from 'framer-motion';
+import './About.css';
+
+const profilePicPath = '/profile_pic.jpeg'; 
+
 const About = () => {
   return (
-    <section id="about" className="about section">
-      <div className="container">
-        <h2 className="section-title">Kireeti</h2>
+    <motion.section
+      id="about"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+    >
+      <div className="about-container">
+        <h2>About Me</h2>
         <div className="about-content">
-          <img src="./profile_pic.jpeg" alt="Your Name" className="profile-pic" />
+          <img src={profilePicPath} alt="Kireeti" className="profile-pic" />
           <div className="about-text">
+            <h3>Hi, I'm Kireeti.</h3>
             <p>
-I’m  Kireeti, a pre-final year B.Tech student at Amrita Vishwa Vidyapeetham, Coimbatore, with a strong interest in full stack web development.
-
-Beyond full-stack development, I have a strong passion for Machine Learning and Artificial Intelligence. I'm actively exploring concepts like deep learning, computer vision, and natural language processing, gaining hands-on experience with frameworks such as TensorFlow and PyTorch. My goal is to apply these cutting-edge technologies to build intelligent and impactful applications, and I'm eager to contribute to projects that push the boundaries of AI.            </p>
+              I'm a pre-final year B.Tech student at Amrita Vishwa Vidyapeetham with a strong focus on full-stack web development and a deep passion for Artificial Intelligence.
+            </p>
+            <p>
+              My goal is to build intelligent and impactful applications by merging robust development techniques with cutting-edge AI. I'm actively exploring deep learning, computer vision using frameworks TensorFlow, and I am eager to contribute to projects that push the boundaries of technology.
+            </p>
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

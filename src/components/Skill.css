@@ -14,7 +14,7 @@
     display: inline-block;
 }
 
-.skills-container h2::after {
+/* .skills-container h2::after {
     content: '';
     position: absolute;
     left: 50%;
@@ -24,7 +24,7 @@
     height: 4px;
     background-color: #bb86fc;
     border-radius: 2px;
-}
+} */
 
 .skills-grid-layout {
     display: grid;
