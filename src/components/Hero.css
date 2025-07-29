@@ -37,7 +37,7 @@
   font-size: 1.5rem;
   line-height: 1.6;
   margin-bottom: 40px;
-  color: #aaaaaa;
+  color: white;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
