@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './About.css';
 
-const profilePicPath = '/profile_pic.jpeg'; 
+const profilePicPath = '/profile_pic.jpeg';
 
 const About = () => {
   return (
@@ -10,8 +10,8 @@ const About = () => {
       id="about"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
       viewport={{ once: true }}
+      transition={{ delay: 0.3, duration: 0.5 }}
     >
       <div className="about-container">
         <h2>About Me</h2>
