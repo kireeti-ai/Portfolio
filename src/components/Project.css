@@ -53,7 +53,7 @@
 
 .project-content h3 {
   font-size: 1.5rem;
-  color: #8E44AD; 
+   color: #bb86fc; 
   margin-top: 0;
   margin-bottom: 10px;
 }
@@ -76,7 +76,7 @@
 
 .tech-tag {
   background-color: #333;
-  color: #8E44AD; 
+ color: #bb86fc;
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 0.85rem;
@@ -92,7 +92,7 @@
 .button-secondary {
   background-color: transparent;
   color: #e0e0e0;
-  border: 2px solid #8E44AD; 
+  border: 2px solid #bb86fc;
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
@@ -102,6 +102,6 @@
 }
 
 .button-secondary:hover {
-  background-color: #8E44AD;
+  background-color: #bb86fc;
   color: #fff;
 }
