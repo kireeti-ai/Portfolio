@@ -7,9 +7,7 @@ const Skill = () => {
     'Frontend': ['React.Js', 'HTML','CSS'],
     'Backend': ['Node.js', 'Express.js'],
     'Databases': ['MongoDB', 'MySQl'],
-    'Dev Tools': ['Git', 'GitHub', 'Docker', 'Vercel', 'Jupyter Notebook', 'Kaggle'],
-    'Machine Learning': ['Supervised Learning', 'Unsupervised Learning'],
-    'Deep Learning': ['Neural Networks', 'Convolutional Neural Networks','TensorFlow'],
+    'Dev Tools': ['Git', 'GitHub', 'Vercel', 'Jupyter Notebook', 'Google Colab'],
     'AI/ML Frameworks': ['Scikit-learn'],
     'Data Science': ['NumPy', 'Pandas'],
 
