@@ -26,14 +26,14 @@ const Hero = () => {
             Explore My Projects
           </a>
 
-          <a 
-            href="/kireeti_resume.pdf" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="cta-button primary-cta"
-          >
-            View Resume
-          </a>
+<a 
+  href="/resume.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="cta-button primary-cta"
+>
+  View Resume
+</a>
         </div>
       </div>
     </section>
