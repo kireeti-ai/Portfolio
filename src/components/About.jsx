@@ -15,15 +15,30 @@ const About = () => {
     >
       <div className="about-container">
         <h2>About Me</h2>
+
         <div className="about-content">
           <img src={profilePicPath} alt="Kireeti" className="profile-pic" />
+
           <div className="about-text">
             <h3>Hi, I'm Kireeti.</h3>
+
             <p>
-              I'm a pre-final year B.Tech student at Amrita Vishwa Vidyapeetham with a strong focus on full-stack web development and a deep passion for Artificial Intelligence.
+              I'm a pre-final year Computer Science student at Amrita Vishwa Vidyapeetham,
+              focused on building scalable software and solving real-world problems through 
+              clean backend architecture and full-stack development.
             </p>
+
             <p>
-              My goal is to build intelligent and impactful applications by merging robust development techniques with cutting-edge AI. I'm actively exploring deep learning, computer vision using frameworks TensorFlow, and I am eager to contribute to projects that push the boundaries of technology.
+              I specialize in <strong>Java, Spring Boot, React.js, Node.js</strong>, and work extensively
+              with REST APIs, databases, and modern development tools. Alongside full-stack engineering,
+              I also explore <strong>Machine Learning</strong> — applying models to create data-driven,
+              intelligent applications.
+            </p>
+
+            <p>
+              I enjoy building systems end-to-end, whether it's crafting fast backend services,
+              designing interactive frontends, or integrating ML pipelines. My goal is to grow
+              as a Software Development Engineer (SDE) and contribute to impactful, high-quality projects.
             </p>
           </div>
         </div>

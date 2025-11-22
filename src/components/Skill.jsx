@@ -3,14 +3,15 @@ import './Skill.css';
 
 const Skill = () => {
   const skills = {
-    'Programming Languages': [ 'Python', 'C++','Java', 'C'],
-    'Frontend': ['React.Js', 'HTML','CSS'],
-    'Backend': ['Node.js', 'Express.js'],
-    'Databases': ['MongoDB', 'MySQl'],
-    'Dev Tools': ['Git', 'GitHub', 'Vercel', 'Jupyter Notebook', 'Google Colab'],
-    'AI/ML Frameworks': ['Scikit-learn'],
+    'Programming Languages': ['Java', 'Python', 'C++', 'JavaScript'],
+    'Frontend': ['React.js', 'HTML5', 'CSS3'],
+    'Backend': ['Spring Boot', 'Node.js', 'Express.js', 'REST APIs'],
+    'Databases': ['MySQL', 'MongoDB', 'PostgreSQL'],
+    'Cloud & DevOps': ['Docker', 'Jenkins', 'Azure', 'CI/CD Pipelines'],
+    'Core CS & DSA': ['OOP', 'Data Structures', 'Algorithms', 'DBMS', 'OS'],
+    'AI/ML Frameworks': ['Scikit-learn', 'Random Forest', 'Regression', 'Classification'],
     'Data Science': ['NumPy', 'Pandas'],
-
+    'Developer Tools': ['Git', 'GitHub', 'Postman', 'VS Code', 'IntelliJ']
   };
 
   return (

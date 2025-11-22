@@ -11,18 +11,29 @@ const Hero = () => {
   return (
     <section id="hero" className="hero-section">
       <div className="hero-content">
-<h1 className={`hero-title ${isLoaded ? 'fade-in' : ''}`}>Innovating at the Intersection of Code and Intelligence.</h1>
-      
+        <h1 className={`hero-title ${isLoaded ? 'fade-in' : ''}`}>
+          Building Scalable Software with Precision and Purpose.
+        </h1>
+
         <p className={`hero-subtitle ${isLoaded ? 'fade-in delay-1' : ''}`}>
-          Aspiring Full Stack Developer with a strong foundation in React and Node.js, currently deepening knowledge in AI/ML and exploring entrepreneurial opportunities.
+          Aspiring Software Developer specializing in Java, Spring Boot, and full-stack development. 
+          Passionate about solving real-world problems through clean architecture, 
+          efficient backend systems, and intelligent ML-driven applications.
         </p>
+
         <div className={`hero-cta-buttons ${isLoaded ? 'fade-in delay-2' : ''}`}>
           <a href="#projects" className="cta-button primary-cta">
-            Explore My Work
+            Explore My Projects
           </a>
-<a href="/kireeti_resume.pdf" target="_blank" rel="noopener noreferrer" className="cta-button primary-cta">
-  View Resume
-</a>
+
+          <a 
+            href="/kireeti_resume.pdf" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="cta-button primary-cta"
+          >
+            View Resume
+          </a>
         </div>
       </div>
     </section>
