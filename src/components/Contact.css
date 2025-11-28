@@ -1,188 +1,153 @@
-/* Contact.css */
-
 .contact-section {
-    padding: 80px 20px;
-    text-align: center;
-
-    color: #e0e0e0;
+  padding: 6rem 0;
+  background-color: #050505;
+  position: relative;
 }
 
-.contact-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding-top: 30px;
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
 }
 
 @media (min-width: 768px) {
-    .contact-container {
-        grid-template-columns: 2fr 1fr;
-        text-align: left;
-    }
+  .contact-grid {
+    grid-template-columns: 3fr 2fr;
+  }
 }
 
+/* --- Form Styles --- */
 .contact-form-wrapper {
-    background-color: #2a2a2a;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 2rem;
+  position: relative;
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .contact-intro-text {
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin-bottom: 30px;
-    color: #aaaaaa;
+  color: #9ca3af;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
 }
 
-.contact-form .form-group {
-    margin-bottom: 20px;
-    text-align: left;
+.form-group {
+  margin-bottom: 1.5rem;
 }
 
-.contact-form label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: #bb86fc;
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #00ff9d;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #444;
-    border-radius: 5px;
-    background-color: #333;
-    color: #e0e0e0;
-    font-size: 1em;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background: #0a0a0a;
+  border: 1px solid #333;
+  color: #e5e5e5;
+  padding: 0.8rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-    border-color: #bb86fc;
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(187, 134, 252, 0.3);
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #00ff9d;
+  box-shadow: 0 0 10px rgba(0, 255, 157, 0.1);
+  background: #0f0f0f;
 }
 
-.contact-form textarea {
-    resize: vertical;
-}
-
-.submit-button {
-    background-color: #bb86fc;
-    color: #121212;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1em;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    margin-top: 10px;
-}
-
-.submit-button:hover {
-    background-color: #9c68e0;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.submit-button:disabled {
-    background-color: #555;
-    cursor: not-allowed;
-    transform: translateY(0);
-    box-shadow: none;
-}
-
+/* --- Status Messages --- */
 .form-status {
-    margin-top: 20px;
-    font-size: 1em;
-    font-weight: 500;
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .form-status.success {
-    color: #03dac6;
+  background: rgba(0, 255, 157, 0.1);
+  border: 1px solid #00ff9d;
+  color: #00ff9d;
 }
 
 .form-status.error {
-    color: #cf6679;
+  background: rgba(255, 95, 86, 0.1);
+  border: 1px solid #ff5f56;
+  color: #ff5f56;
 }
 
-.contact-info-links {
-    padding: 40px;
-    background-color: #2a2a2a;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* --- Right Side Terminal --- */
+.terminal-card {
+  background: #0a0a0a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 100%;
 }
 
-@media (min-width: 768px) {
-    .contact-info-links {
-        align-items: flex-start;
-        text-align: left;
-    }
+.terminal-header {
+  background: #151515;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #333;
 }
 
-.contact-info-links h3 {
-    font-size: 1.6em;
-    color: #bb86fc;
-    margin-bottom: 20px;
-}
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
 
-.contact-info-links p {
-    font-size: 1em;
-    color: #aaaaaa;
-    margin-bottom: 25px;
+.terminal-body {
+  padding: 2rem;
 }
 
 .direct-links {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-@media (min-width: 768px) {
-    .direct-links {
-        align-items: flex-start;
-    }
+.terminal-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #9ca3af;
+  text-decoration: none;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
-.contact-link {
-    color: #e0e0e0;
-    text-decoration: none;
-    font-size: 1.1em;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.contact-link:hover {
-    color: #bb86fc;
-    transform: translateX(5px);
-}
-
-.contact-link svg {
-    font-size: 1.3em;
-    color: #bb86fc;
-}
-
-.location {
-    margin-top: 30px;
-    color: #aaaaaa;
-}
-
-.location h4 {
-    color: #bb86fc;
-    margin-bottom: 10px;
+.terminal-link:hover {
+  background: rgba(0, 255, 157, 0.05);
+  border-color: #00ff9d;
+  color: #00ff9d;
+  transform: translateX(5px);
 }

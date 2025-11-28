@@ -6,21 +6,20 @@ import About from './components/About';
 import Skills from './components/Skill';
 import Projects from './components/Project';
 import Contact from './components/Contact';
-import VantaBackground from './components/VantaBackground';
+import TechBackground from './components/TechBackground'; // <--- IMPORT THIS
 import ScrollToTopButton from './components/ScrollToTopButton';
+
 function App() {
   return (
     <div className="App">
-      <VantaBackground /> 
+      <TechBackground /> {/* <--- USE IT HERE */}
       <Header />
       <main>
-  
         <Hero />
         <About />
         <Skills />
         <Projects />
         <Contact />
-        
       </main>
       <ScrollToTopButton /> 
     </div>

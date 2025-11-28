@@ -1,0 +1,67 @@
+
+:root {
+  /* Color Palette */
+  --bg-dark: #050505;
+  --bg-card: #0a0a0a;
+  --text-primary: #e5e5e5;
+  --text-secondary: #a3a3a3;
+  
+  /* Cyberpunk Accents */
+  --accent: #00ff9d;        /* Neon Green */
+  --accent-glow: rgba(0, 255, 157, 0.2);
+  --accent-secondary: #00b8ff; /* Cyber Blue */
+  
+  --border: #333;
+}
+
+/* Base Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* The Matrix/Tech Grid Background (Fallback if Vanta doesn't load) */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 50px 50px;
+  background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}

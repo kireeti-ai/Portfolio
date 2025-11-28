@@ -1,64 +1,75 @@
 import React from 'react';
-import './Project.css';
+import { Github, ExternalLink, Code } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const projectData = [
   {
-    title: "SnapDish – Food Delivery Website",
-    image: "/Snap_dish.png",
-    description:
-      "A full-stack MERN food delivery platform featuring restaurant listings, cart management, order handling, and secure JWT authentication. Built with a responsive UI and RESTful API architecture for smooth end-to-end ordering.",
-    techStack: ["React.js", "CSS", "Node.js", "Express.js", "MongoDB", "JWT"],
-    codeLink: "https://github.com/kireeti-ai/snap-dish"
+    title: "SnapDish Delivery",
+    desc: "MERN stack platform with JWT auth, cart management, and order handling.",
+    tech: ["React", "Node.js", "MongoDB", "Express"],
+    link: "https://github.com/kireeti-ai/snap-dish"
   },
-
   {
     title: "Quiz Application",
-    image: "/quiz.png",
-    description:
-      "A full-stack quiz platform built with React and Spring Boot. Includes user authentication, category-based quizzes, score tracking, and admin CRUD operations. Data is stored in MySQL with secure backend APIs.",
-    techStack: ["React.js", "Spring Boot", "MySQL", "REST API", "Spring Security"],
-    codeLink: "https://github.com/kireeti-ai/Quiz"
+    desc: "Interactive quiz platform with Spring Boot backend and MySQL storage.",
+    tech: ["Spring Boot", "React", "MySQL", "Security"],
+    link: "https://github.com/kireeti-ai/Quiz"
   },
-
   {
-    title: "Air Quality Prediction System",
-    image: "/air_quality.png",
-    description:
-      "An ML-powered AQI prediction system achieving 90%+ accuracy using a Random Forest Regressor. Features a Flask backend API, React UI, CI/CD deployment with Docker & Jenkins, and real-time weather data integration.",
-    techStack: ["Python", "Flask", "React.js", "Random Forest", "Docker", "Jenkins", "OpenWeather API"],
-    codeLink: "https://github.com/kireeti-ai/air-quality-prediction"
-  },
-
+    title: "Air Quality AI",
+    desc: "ML prediction system (90% accuracy) using Random Forest & Flask API.",
+    tech: ["Python", "Flask", "Scikit-Learn", "Docker"],
+    link: "https://github.com/kireeti-ai/air-quality-prediction"
+  }
 ];
-
-const ProjectCard = ({ project }) => (
-  <div className="project-card">
-    <img src={project.image} alt={`${project.title} screenshot`} className="project-image" />
-    <div className="project-content">
-      <h3>{project.title}</h3>
-      <p className="project-description">{project.description}</p>
-      <ul className="project-tech-stack">
-        {project.techStack.map((tech, index) => (
-          <li key={index} className="tech-tag">{tech}</li>
-        ))}
-      </ul>
-      <div className="project-links">
-        <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className="button-secondary">
-          View Code
-        </a>
-      </div>
-    </div>
-  </div>
-);
 
 const Projects = () => {
   return (
-    <section id="projects">
-      <h2 className="section-title">My Projects</h2>
-      <div className="project-grid">
-        {projectData.map((project, index) => (
-          <ProjectCard key={index} project={project} />
-        ))}
+    <section id="projects" className="py-24 px-6 bg-[#080808]">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="section-title">
+          <span className="text-[#00ff9d]">02.</span> Deployed Modules
+        </h2>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projectData.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="bg-[#111] border border-[#333] p-6 rounded-lg hover:border-[#00ff9d] transition-all group relative overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 w-1 h-full bg-[#00ff9d] transform scale-y-0 group-hover:scale-y-100 transition-transform origin-top"></div>
+              
+              <div className="flex justify-between items-start mb-4">
+                <div className="p-3 bg-[#1a1a1a] rounded-full text-[#00ff9d]">
+                  <Code size={24} />
+                </div>
+                <div className="flex gap-3">
+                  <a href={project.link} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white">
+                    <Github size={20} />
+                  </a>
+                </div>
+              </div>
+
+              <h3 className="text-xl font-bold text-white mb-3 font-mono group-hover:text-[#00ff9d] transition-colors">
+                {project.title}
+              </h3>
+              <p className="text-gray-400 mb-6 text-sm leading-relaxed">
+                {project.desc}
+              </p>
+
+              <div className="flex flex-wrap gap-2 mt-auto">
+                {project.tech.map((t) => (
+                  <span key={t} className="text-xs font-mono text-[#00ff9d] bg-[#00ff9d]/10 px-2 py-1 rounded">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
