@@ -53,7 +53,7 @@ const About = () => {
           <div className="bg-[#0a0a0a] border border-[#333] rounded p-4 font-mono text-sm text-gray-300">
             <p><span className="text-[#00ff9d]">&gt;</span> current_location: <span className="text-blue-400">"India"</span></p>
             <p><span className="text-[#00ff9d]">&gt;</span> education: <span className="text-blue-400">"B.Tech CSE (2027)"</span></p>
-            <p><span className="text-[#00ff9d]">&gt;</span> interests: <span className="text-yellow-400">["Networking", "Cloud", "AI"]</span></p>
+            <p><span className="text-[#00ff9d]">&gt;</span> interests: <span className="text-yellow-400">["Backend Engineering", "Machine Learning", "Full-Stack Development"]</span></p>
           </div>
         </motion.div>
 
