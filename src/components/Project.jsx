@@ -24,7 +24,7 @@ const projectData = [
   {
     title: "Network Simulation",
     desc: "Custom network behavior simulator featuring routing logic, congestion handling, and packet-flow visualization.",
-    tech: ["Java", "Networking", "Simulation", "Data Structures"],
+    tech: ["Python", "Networking", "Simulation", "Data Structures"],
     link: "https://github.com/kireeti-ai/Network-simulation"
   }
 ];
