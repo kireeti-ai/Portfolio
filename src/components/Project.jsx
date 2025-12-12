@@ -3,12 +3,12 @@ import { Github, ExternalLink, Code } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const projectData = [
-  {
-    title: "SnapDish Delivery",
-    desc: "MERN stack platform with JWT auth, cart management, and order handling.",
-    tech: ["React", "Node.js", "MongoDB", "Express"],
-    link: "https://github.com/kireeti-ai/snap-dish"
-  },
+{
+  title: "SnapDish Delivery",
+  desc: "End-to-end food delivery platform built on the MERN stack with a multi-role architecture supporting Restaurant Admins, Delivery Agents, Customers, and a Super Admin. The system manages restaurant onboarding, menu publishing, real-time cart operations, order placement and assignment, delivery workflow tracking, and platform-wide administration. Includes secure JWT-based authentication, role-based access control (RBAC), and scalable REST APIs.",
+  tech: ["React", "Node.js", "MongoDB", "Express", "JWT", "RBAC", "REST API"],
+  link: "https://github.com/kireeti-ai/snap-dish"
+},
   {
     title: "Quiz Application",
     desc: "Interactive quiz platform with Spring Boot backend and MySQL storage.",
@@ -20,6 +20,12 @@ const projectData = [
     desc: "ML prediction system (90% accuracy) using Random Forest & Flask API.",
     tech: ["Python", "Flask", "Scikit-Learn", "Docker"],
     link: "https://github.com/kireeti-ai/air-quality-prediction"
+  },
+  {
+    title: "Network Simulation",
+    desc: "Custom network behavior simulator featuring routing logic, congestion handling, and packet-flow visualization.",
+    tech: ["Java", "Networking", "Simulation", "Data Structures"],
+    link: "https://github.com/kireeti-ai/Network-simulation"
   }
 ];
 
