@@ -3,27 +3,40 @@ import { Github, ExternalLink, Code } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const projectData = [
-{
-  title: "SnapDish Delivery",
-  desc: "End-to-end food delivery platform built on the MERN stack with a multi-role architecture supporting Restaurant Admins, Delivery Agents, Customers, and a Super Admin. The system manages restaurant onboarding, menu publishing, real-time cart operations, order placement and assignment, delivery workflow tracking, and platform-wide administration. Includes secure JWT-based authentication, role-based access control (RBAC), and scalable REST APIs.",
-  tech: ["React", "Node.js", "MongoDB", "Express", "JWT", "RBAC", "REST API"],
-  link: "https://github.com/kireeti-ai/snap-dish"
-},
   {
-    title: "Quiz Application",
-    desc: "Interactive quiz platform with Spring Boot backend and MySQL storage.",
-    tech: ["Spring Boot", "React", "MySQL", "Security"],
-    link: "https://github.com/kireeti-ai/Quiz"
+    title: "SnapDish Delivery",
+    desc: "End-to-end food delivery platform built on the MERN stack with a multi-role architecture supporting Restaurant Admins, Delivery Agents, Customers, and a Super Admin. The system manages restaurant onboarding, menu publishing, real-time cart operations, order placement and assignment, delivery workflow tracking, and platform-wide administration. Includes secure JWT-based authentication, role-based access control (RBAC), and scalable REST APIs.",
+    tech: ["React", "Node.js", "MongoDB", "Express", "JWT", "RBAC", "REST API"],
+    link: "https://github.com/kireeti-ai/snap-dish"
+  },
+  {
+    title: "Quizora AI",
+    desc: "AI-assisted academic quiz platform with a Spring Boot backend and React frontend. Enables faculty to generate quizzes automatically from topics or manually curate questions, publish quizzes via unique access codes, and evaluate submissions securely. Implements role-based access control, automated scoring, and scalable REST APIs for real-world academic use.",
+    tech: ["Spring Boot", "React", "MySQL", "JWT", "RBAC", "REST API"],
+    link: "https://github.com/kireeti-ai/Quizora-ai"
+  },
+  {
+    title: "CI Living Documentation",
+    desc: "A CI-driven documentation automation platform that keeps engineering artefacts—architecture diagrams, sequence flows, API references, READMEs, and changelogs—continuously synchronized with the evolving codebase. Integrates into CI/CD pipelines to detect code changes using Git diffs, AST analysis, and dependency graphs, automatically generates documentation, detects drift, and raises automated pull requests with proposed updates.",
+    tech: [
+      "CI/CD",
+      "GitHub Actions",
+      "AST Analysis",
+      "Dependency Graphs",
+      "Automation",
+      "Documentation"
+    ],
+    link: "https://github.com/kireeti-ai/ci-living-documentation"
   },
   {
     title: "Air Quality AI",
-    desc: "ML prediction system (90% accuracy) using Random Forest & Flask API.",
+    desc: "Machine learning–based air quality prediction system achieving approximately 90% accuracy using Random Forest models. Exposes predictions through a Flask-based REST API and supports containerized deployment for reproducibility and scalability.",
     tech: ["Python", "Flask", "Scikit-Learn", "Docker"],
     link: "https://github.com/kireeti-ai/air-quality-prediction"
   },
   {
     title: "Network Simulation",
-    desc: "Custom network behavior simulator featuring routing logic, congestion handling, and packet-flow visualization.",
+    desc: "Custom network behavior simulator implementing routing logic, congestion handling, and packet-flow visualization. Designed to model and analyze network behavior using core data structures and algorithmic principles.",
     tech: ["Python", "Networking", "Simulation", "Data Structures"],
     link: "https://github.com/kireeti-ai/Network-simulation"
   }

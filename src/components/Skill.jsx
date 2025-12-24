@@ -1,14 +1,28 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-  const skills = {
-    'Programming Languages': ['Java', 'Python', 'JavaScript'],
-    'Frontend': ['React.js', 'HTML5', 'CSS3'],
-    'Backend': ['Spring Boot', 'Node.js', 'Express.js', 'REST APIs'],
-    'Databases': ['MySQL', 'MongoDB'],
-    'Core CS & DSA': ['OOP', 'Data Structures', 'Algorithms', 'DBMS', 'OS'],
-
-  }
+const skills = {
+  'Programming Languages': ['Java', 'Python', 'JavaScript', 'C', 'SQL', 'NoSQL'],
+  'Frontend': ['React.js', 'HTML5', 'CSS3'],
+  'Backend': ['Spring Boot', 'Node.js', 'Express.js', 'REST APIs'],
+  'Databases': ['MySQL', 'MongoDB'],
+  'Cloud & DevOps': ['AWS', 'Docker'],
+  'Developer Tools & IDEs': [
+    'Git',
+    'VS Code',
+    'IntelliJ IDEA',
+    'Visual Studio',
+    'Eclipse'
+  ],
+  'Core CS & DSA': [
+    'OOP',
+    'Data Structures',
+    'Algorithms',
+    'DBMS',
+    'Operating Systems',
+    'Computer Networks (CN)'
+  ]
+};
 
 const Skills = () => {
   return (
