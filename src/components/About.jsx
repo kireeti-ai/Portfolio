@@ -1,60 +1,110 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Terminal, Cpu, MapPin, Calendar, User, Briefcase } from 'lucide-react';
 import './About.css';
 
 const About = () => {
   return (
-    <section id="about" className="py-24 px-6 relative">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-[1fr_1.5fr] gap-12 items-center">
-        
-        {/* IMAGE SIDE (Left) */}
+    <section id="about" className="py-32 px-6 relative bg-[#050505] overflow-hidden">
+      {/* Background Decor: Binary/Grid hints */}
+      <div className="absolute top-20 right-0 text-[10rem] font-bold text-[#111] opacity-50 select-none pointer-events-none -z-10 font-mono">
+        01
+      </div>
+
+      <div className="max-w-6xl mx-auto grid md:grid-cols-[1fr_1.5fr] gap-16 items-center">
+
+        {/* LEFT: THE CYBER IMAGE SCANNER */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           className="relative group"
         >
-          {/* The Cyber Border Effect */}
-          <div className="absolute -inset-2 bg-gradient-to-r from-[#00ff9d] to-blue-600 rounded-lg opacity-20 group-hover:opacity-60 blur-lg transition duration-500"></div>
-          
-          <div className="relative rounded-lg overflow-hidden border-2 border-[#333] group-hover:border-[#00ff9d] transition duration-300">
-            <img 
-              src="/profile_pic.jpeg" 
-              alt="Kireeti" 
-              className="w-full h-auto grayscale group-hover:grayscale-0 transition duration-500 object-cover"
+          {/* HUD Corner Brackets */}
+          <div className="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-[#00ff9d] z-20"></div>
+          <div className="absolute -top-2 -right-2 w-8 h-8 border-t-2 border-r-2 border-[#00ff9d] z-20"></div>
+          <div className="absolute -bottom-2 -left-2 w-8 h-8 border-b-2 border-l-2 border-[#00ff9d] z-20"></div>
+          <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-[#00ff9d] z-20"></div>
+
+          {/* The Image Container */}
+          <div className="relative rounded overflow-hidden border border-[#333] bg-[#111]">
+            <img
+              src="/profile_pic.jpeg"
+              alt="Profile"
+              className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-700 object-cover"
             />
-            {/* Scanline overlay */}
-            <div className="absolute inset-0 bg-[url('https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif')] opacity-10 pointer-events-none mix-blend-overlay"></div>
+
+            {/* The Scanning Line Animation */}
+            <div className="scanner-line"></div>
+
+            {/* Overlay Tint */}
+            <div className="absolute inset-0 bg-[#00ff9d] opacity-10 mix-blend-overlay"></div>
           </div>
         </motion.div>
 
-        {/* TEXT SIDE (Right) */}
+
+        {/* RIGHT: THE SYSTEM DATA */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="section-title text-left mb-6">
-            <span className="text-[#00ff9d]">01.</span> About Me
+          {/* Glitch Title */}
+          <h2 className="text-4xl font-bold mb-8 text-white font-mono flex items-center gap-3">
+            <span className="text-[#00ff9d]">01.</span>
+            <span className="glitch-text" data-text="SYSTEM_PROFILE">SYSTEM_PROFILE</span>
           </h2>
-          
-          <div className="space-y-4 text-gray-400 text-lg leading-relaxed mb-8">
+
+          {/* The Professional Bio */}
+          <div className="space-y-6 text-gray-400 text-lg leading-relaxed mb-10 font-sans border-l-2 border-[#333] pl-6">
             <p>
-              I am a pre-final year Computer Science student at <span className="text-white font-semibold">Amrita Vishwa Vidyapeetham</span>.
+              I am a <span className="text-white font-semibold">Full-Stack Architect</span> in training, currently decoding complex systems at <span className="text-[#00ff9d]">Amrita Vishwa Vidyapeetham</span>.
             </p>
             <p>
-              I specialize in building robust backend systems with <span className="text-[#00ff9d]">Java & Spring Boot</span> 
-              and creating high-performance frontends. My research focuses on integrating <span className="text-white">Machine Learning</span> models 
-              into scalable web architectures.
+              My expertise lies in engineering <span className="text-white">high-performance backends</span> using Java & Spring Boot, while crafting intuitive frontend experiences. I bridge the gap between abstract logic and user interaction, with a focus on integrating <span className="text-[#00ff9d]">Machine Learning</span> pipelines into production web environments.
             </p>
           </div>
 
-          {/* Mini Terminal Info - FIXED THE '>' CHARACTERS BELOW */}
-          <div className="bg-[#0a0a0a] border border-[#333] rounded p-4 font-mono text-sm text-gray-300">
-            <p><span className="text-[#00ff9d]">&gt;</span> current_location: <span className="text-blue-400">"India"</span></p>
-            <p><span className="text-[#00ff9d]">&gt;</span> education: <span className="text-blue-400">"B.Tech CSE (2027)"</span></p>
-            <p><span className="text-[#00ff9d]">&gt;</span> interests: <span className="text-yellow-400">["Backend Engineering", "Machine Learning", "Full-Stack Development"]</span></p>
+          {/* The "Terminal" Data Block */}
+          <div className="bg-[#0f0f0f] border border-[#333] rounded-lg p-6 relative group overflow-hidden">
+            {/* Header of the fake terminal */}
+            <div className="flex items-center justify-between mb-4 border-b border-[#222] pb-2">
+              <div className="flex gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+              </div>
+              <span className="text-xs text-gray-600 font-mono">user_data.json</span>
+            </div>
+
+            {/* The Data Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-sm">
+              <div className="flex items-center gap-3 text-gray-300">
+                <MapPin size={16} className="text-[#00ff9d]" />
+                <span>Loc: <span className="text-gray-500">India, IN</span></span>
+              </div>
+
+              <div className="flex items-center gap-3 text-gray-300">
+                <Briefcase size={16} className="text-[#00ff9d]" />
+                <span>Exp: <span className="text-gray-500">Pre-Final Year</span></span>
+              </div>
+
+              <div className="flex items-center gap-3 text-gray-300">
+                <User size={16} className="text-[#00ff9d]" />
+                <span>Age: <span className="text-gray-500">20</span></span>
+              </div>
+
+              <div className="flex items-center gap-3 text-gray-300">
+                <Cpu size={16} className="text-[#00ff9d]" />
+                <span>Focus: <span className="text-yellow-400">Backend + ML</span></span>
+              </div>
+            </div>
+
+            {/* Terminal Prompt at bottom */}
+            <div className="mt-6 pt-4 border-t border-[#222] text-[#00ff9d] animate-pulse">
+              _ ready to collaborate
+            </div>
           </div>
+
         </motion.div>
 
       </div>

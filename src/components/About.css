@@ -1,15 +1,32 @@
-#about {
-  background-color: var(--bg-dark);
-  position: relative;
+/* About.css */
+
+/* The Scanning Line Animation */
+.scanner-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #00ff9d;
+  box-shadow: 0 0 10px #00ff9d, 0 0 20px #00ff9d;
+  opacity: 0.6;
+  animation: scan 3s linear infinite;
+  z-index: 10;
 }
 
-/* The Terminal Window styling is handled by Tailwind classes in the JSX, 
-   but specific code block styling goes here */
+@keyframes scan {
+  0% {
+    top: 0%;
+  }
+  50% {
+    top: 100%;
+  }
+  100% {
+    top: 0%;
+  }
+}
 
-pre {
-  white-space: pre-wrap;       /* Since CSS 2.1 */
-  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-  white-space: -pre-wrap;      /* Opera 4-6 */
-  white-space: -o-pre-wrap;    /* Opera 7 */
-  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+/* Ensure global consistency for the section */
+#about {
+  /* We handle background in JSX with Tailwind classes now for flexibility */
 }

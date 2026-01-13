@@ -1,31 +1,25 @@
+/* Header.css */
 
-.nav-link {
-  position: relative;
-  text-decoration: none;
-  color: #9ca3af;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.9rem;
-  transition: color 0.3s ease;
+/* Ensures the header doesn't get lost on mobile */
+header {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-.nav-link:hover,
-.nav-link.active {
-  color: var(--accent);
+/* Custom Scrollbar for the page (optional, fits the theme) */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-.nav-link::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  background-color: var(--accent);
-  transition: width 0.3s ease;
-  box-shadow: 0 0 10px var(--accent);
+::-webkit-scrollbar-track {
+  background: #050505;
 }
 
-.nav-link:hover::after,
-.nav-link.active::after {
-  width: 100%;
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00ff9d;
 }
