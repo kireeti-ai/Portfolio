@@ -21,6 +21,17 @@ const projectData = [
     tech: ["Python", "Scikit-Learn", "Docker", "Flask"],
     link: "https://github.com/kireeti-ai/air-quality-prediction"
   }
+  ,{
+    title: "Network Simulation",
+    desc: "Custom network behavior simulator implementing routing logic, congestion handling, and packet-flow visualization. Designed to model and analyze network behavior using core data structures.",
+    tech: ["Python", "Networking", "Simulation", "Data Structures"],
+    link: "https://github.com/kireeti-ai/Network-simulation"
+  },{
+    title: "CI Living Documentation",
+    desc: "A CI-driven documentation automation platform that keeps engineering artefacts continuously synchronized. Integrates into CI/CD pipelines to detect code changes using Git diffs and AST analysis to generate documentation automatically.",
+    tech: ["CI/CD", "GitHub Actions", "AST Analysis", "Automation"],
+    link: "https://github.com/kireeti-ai/ci-living-documentation"
+  }
 ];
 
 const Projects = () => {
