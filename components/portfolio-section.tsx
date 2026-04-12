@@ -4,7 +4,6 @@ import { ArrowRight, Github } from "lucide-react"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
-import Link from "next/link"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 import type { Project } from "@/lib/projects"
@@ -17,6 +16,9 @@ export function PortfolioSection({ projects }: PortfolioSectionProps) {
   const router = useRouter()
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const navigateToProject = (slug: string) => {
+    router.push(`/projects/${slug}`)
+  }
 
   return (
     <section id="projects" className="container mx-auto px-4 py-16 md:py-24" ref={ref}>
@@ -54,16 +56,16 @@ export function PortfolioSection({ projects }: PortfolioSectionProps) {
                 role="link"
                 tabIndex={0}
                 onClick={(event) => {
-                  if (event.target instanceof Element && event.target.closest("a")) {
+                  if (event.target instanceof Element && event.target.closest("a,button")) {
                     return
                   }
 
-                  router.push(`/projects/${project.slug}`)
+                  navigateToProject(project.slug)
                 }}
                 onKeyDown={(event) => {
                   if (event.key === "Enter" || event.key === " ") {
                     event.preventDefault()
-                    router.push(`/projects/${project.slug}`)
+                    navigateToProject(project.slug)
                   }
                 }}
               >
@@ -119,13 +121,14 @@ export function PortfolioSection({ projects }: PortfolioSectionProps) {
                   </p>
 
                   <div className="mt-auto flex items-center justify-between gap-4">
-                    <Link
-                      href={`/projects/${project.slug}`}
+                    <button
+                      type="button"
+                      onClick={() => navigateToProject(project.slug)}
                       className="inline-flex items-center gap-2 text-sm font-semibold text-[#0B0B0B] md:text-base"
                     >
                       View details
                       <ArrowRight className="w-4 h-4" />
-                    </Link>
+                    </button>
 
                     <motion.a
                     href={project.github}

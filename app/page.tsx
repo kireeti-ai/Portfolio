@@ -11,7 +11,6 @@ import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { CursorFollower } from "@/components/cursor-follower"
-import { LoadingScreen } from "@/components/loading-screen"
 import { getPortfolioContent } from "@/lib/portfolio-content"
 
 export default async function Home() {
@@ -19,7 +18,6 @@ export default async function Home() {
 
   return (
     <>
-      <LoadingScreen />
       <CursorFollower />
       <main className="min-h-screen bg-[#FFFFFF] scroll-smooth">
         <Navigation />
