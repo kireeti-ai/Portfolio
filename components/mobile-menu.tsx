@@ -17,7 +17,7 @@ export function MobileMenu() {
   const socialLinks = [
     { icon: <Github className="w-6 h-6" />, href: "https://github.com/kireeti-ai", label: "GitHub" },
     { icon: <Linkedin className="w-6 h-6" />, href: "https://linkedin.com/in/kireeti", label: "LinkedIn" },
-    { icon: <Mail className="w-6 h-6" />, href: "mailto:vkireeti16@gmail.com", label: "Email" },
+    { icon: <Mail className="w-6 h-6" />, href: "mailto:kireetiv2005@gmail.com", label: "Email" },
   ]
 
   return (
@@ -108,7 +108,7 @@ export function MobileMenu() {
                   transition={{ delay: 0.6 }}
                 >
                   <a
-                    href="mailto:vkireeti16@gmail.com"
+                    href="mailto:kireetiv2005@gmail.com"
                     className="block w-full py-4 bg-[#FFC224] text-black text-center font-bold rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
                   >
                     Hire Me

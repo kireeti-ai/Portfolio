@@ -1,0 +1,412 @@
+{
+  "projects": [
+    {
+      "slug": "docpulseai",
+      "title": "DocPulseAI - AI Platform for Code Intelligence",
+      "summary": "Built a repository intelligence platform that extracts APIs, entities, and dependencies from large codebases.",
+      "description": "DocPulseAI is a backend-focused platform for understanding complex repositories using AST-based analysis pipelines and service-oriented processing.",
+      "role": "Backend Engineer",
+      "projectType": "Personal Project",
+      "timeline": "Mar 2026",
+      "focus": "Code intelligence, backend services, cloud deployment",
+      "problem": "Large repositories are hard to understand quickly, especially when APIs and dependency relationships are spread across many modules.",
+      "goals": [
+        "Extract structured intelligence (APIs, entities, dependencies) from real-world repositories.",
+        "Provide fast queryable outputs for developers exploring unfamiliar codebases.",
+        "Deploy an analysis pipeline that can scale beyond local scripts."
+      ],
+      "ownership": [
+        "Designed and implemented AST parsing workflows using Tree-sitter.",
+        "Built service logic to extract APIs, entities, and dependency relationships from repository code.",
+        "Containerized services and productionized deployment workflows on Azure."
+      ],
+      "constraints": [
+        "Needed to handle repositories with different code styles and architectural patterns.",
+        "Balanced depth of analysis with compute cost and response-time expectations."
+      ],
+      "architecture": [
+        "Parser and extraction services process repositories into structured metadata.",
+        "Data and artifacts are persisted using PostgreSQL and Blob Storage.",
+        "Deployed a microservices setup on Azure ACA/ACR for reproducible environment management."
+      ],
+      "qualitySignals": [
+        "Service boundaries reduced coupling between parsing, extraction, and storage concerns.",
+        "Containerized deployment made environment behavior consistent across runs.",
+        "Cloud persistence enabled repeatable analysis workflows instead of one-off scripts."
+      ],
+      "impact": [
+        "Made codebase intelligence searchable and structured instead of manual and ad-hoc.",
+        "Improved developer onboarding and exploration speed for large repositories.",
+        "Delivered a cloud-ready deployment path for scaling analysis workloads."
+      ],
+      "challenges": [
+        "Balancing parsing depth and processing performance for large repositories.",
+        "Keeping extracted relationships consistent across different code patterns."
+      ],
+      "nextSteps": [
+        "Add language-agnostic extraction modules for multi-language monorepos.",
+        "Introduce ranking/relevance signals for faster API and dependency discovery."
+      ],
+      "tags": [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "Azure"
+      ],
+      "date": "Mar 2026",
+      "status": "In Progress",
+      "bgColor": "bg-[#6366F1]",
+      "iconKey": "brain",
+      "coverImage": "/images/projects/docpulseai.svg",
+      "github": "https://github.com/DocPulseAI"
+    },
+    {
+      "slug": "edge-co-intelligence-system",
+      "title": "Edge Co-Intelligence System",
+      "summary": "Built a distributed edge inference system that parallelizes YOLOv8 detection across worker nodes with fault tolerance.",
+      "description": "This project focuses on low-latency computer vision inference by distributing workloads across multiple edge workers and aggregating predictions in real time.",
+      "role": "Backend & Distributed Systems Engineer",
+      "projectType": "Research / Systems Project",
+      "timeline": "Feb 2026",
+      "focus": "Edge inference orchestration and low-latency backend design",
+      "problem": "Single-node inference pipelines become bottlenecks under high throughput and are fragile when a worker fails.",
+      "goals": [
+        "Parallelize inference workloads across distributed worker nodes.",
+        "Keep end-to-end latency low while increasing throughput.",
+        "Maintain continuity when nodes fail or become unhealthy."
+      ],
+      "ownership": [
+        "Designed orchestration logic for distributing inference jobs across worker nodes.",
+        "Implemented health checks, retries, and failure recovery for resilient processing.",
+        "Built aggregation and response pipelines for real-time inference output."
+      ],
+      "constraints": [
+        "Needed to coordinate variable worker performance and intermittent availability.",
+        "Real-time output required strict handling of response order and retries."
+      ],
+      "architecture": [
+        "Controller routes inference requests to workers based on availability and load.",
+        "Workers run YOLOv8 inference and stream outputs for centralized aggregation.",
+        "Fault-tolerant logic handles retries and worker failover without stopping the full pipeline."
+      ],
+      "qualitySignals": [
+        "Health-aware scheduling reduced avoidable failures from unstable workers.",
+        "Retry and failover strategy improved system resilience under node churn.",
+        "Streaming aggregation maintained usable real-time behavior under load."
+      ],
+      "impact": [
+        "Improved throughput by parallelizing inference workloads across multiple workers.",
+        "Reduced single-point-of-failure risk with health monitoring and retry strategy.",
+        "Enabled stable real-time detection under variable worker availability."
+      ],
+      "challenges": [
+        "Managing worker coordination while keeping latency predictable.",
+        "Handling node failures without creating duplicate or dropped inference results."
+      ],
+      "nextSteps": [
+        "Add autoscaling policies based on queue depth and latency thresholds.",
+        "Introduce observability dashboards for worker-level performance diagnostics."
+      ],
+      "tags": [
+        "Python",
+        "FastAPI",
+        "YOLOv8"
+      ],
+      "date": "Feb 2026",
+      "status": "Completed",
+      "bgColor": "bg-[#2F81F7]",
+      "iconKey": "eye",
+      "coverImage": "/images/projects/edge-co-intelligence-system.svg",
+      "github": "https://github.com/kireeti-ai/distributed-edge-ai-inference"
+    },
+    {
+      "slug": "quizora-ai",
+      "title": "Quizora AI - Online Assessment Platform",
+      "summary": "Developed a stateless assessment API with secure role-based access control and automated grading flows.",
+      "description": "Quizora AI is an online assessment platform centered on secure backend workflows for quiz creation, assignment, evaluation, and access control.",
+      "role": "Backend Engineer",
+      "projectType": "Product-Style Application",
+      "timeline": "Nov 2025",
+      "focus": "Secure API design, assessment workflow automation, RBAC",
+      "problem": "Assessment systems need secure multi-role workflows while keeping quiz creation, delivery, and grading consistent at scale.",
+      "goals": [
+        "Support end-to-end quiz lifecycle for faculty and students.",
+        "Ensure secure role-based access to all sensitive operations.",
+        "Keep backend stateless and deployment-friendly."
+      ],
+      "ownership": [
+        "Built stateless REST APIs in Spring Boot with transactional quiz lifecycle flows.",
+        "Implemented secure authentication and authorization with Spring Security and JWT.",
+        "Designed faculty and student RBAC paths for controlled access to sensitive operations."
+      ],
+      "constraints": [
+        "Assessment data integrity had to be preserved across assignment and grading flows.",
+        "Authorization boundaries needed to be strict without blocking valid faculty workflows."
+      ],
+      "architecture": [
+        "Spring Boot services expose APIs for quiz management, assignment, and grading.",
+        "MySQL stores users, quizzes, attempts, and evaluation state with transactional consistency.",
+        "JWT-based security layer enforces role-based access at API boundaries."
+      ],
+      "qualitySignals": [
+        "Transactional operations protected consistency in quiz distribution and scoring.",
+        "RBAC checks at API level reduced privilege misuse risk.",
+        "Stateless auth model simplified horizontal scaling behavior."
+      ],
+      "impact": [
+        "Enabled secure and role-aware access to all assessment workflows.",
+        "Reduced manual grading effort through automated result processing.",
+        "Kept backend stateless for easier scaling and deployment."
+      ],
+      "challenges": [
+        "Designing role boundaries that are strict but still practical for faculty workflows.",
+        "Maintaining transactional integrity across quiz distribution and grading operations."
+      ],
+      "nextSteps": [
+        "Add audit trails for faculty-side content updates and grading overrides.",
+        "Expand analytics endpoints for cohort performance insights."
+      ],
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "MySQL",
+        "JWT"
+      ],
+      "date": "Nov 2025",
+      "status": "Completed",
+      "bgColor": "bg-[#FF6B7A]",
+      "iconKey": "zap",
+      "coverImage": "/images/projects/quizora-ai.svg",
+      "github": "https://github.com/kireeti-ai/Quizora-ai"
+    },
+    {
+      "slug": "snapdish",
+      "title": "SnapDish - Food Delivery Platform",
+      "summary": "Built a full-stack food delivery platform with order lifecycle management and admin analytics capabilities.",
+      "description": "SnapDish combines customer-facing ordering flows with operational tooling for restaurants and administrators using a robust REST backend.",
+      "role": "Full-Stack Developer (Backend-focused)",
+      "projectType": "Full-Stack Product",
+      "timeline": "Oct 2025",
+      "focus": "Order lifecycle APIs, operations dashboards, data aggregation",
+      "problem": "Food delivery platforms require dependable order-state transitions and real-time operational visibility for restaurants and admins.",
+      "goals": [
+        "Implement reliable order lifecycle transitions across user and admin flows.",
+        "Support restaurant discovery and order operations through clean API contracts.",
+        "Provide dashboard-friendly data for operational visibility."
+      ],
+      "ownership": [
+        "Implemented backend APIs for restaurants, orders, and lifecycle state transitions.",
+        "Built admin workflows for order monitoring and revenue-level insights.",
+        "Connected frontend user journeys to backend business logic with consistent API contracts."
+      ],
+      "constraints": [
+        "Needed to prevent inconsistent order states during high activity windows.",
+        "Dashboard and transactional APIs had competing read/write performance demands."
+      ],
+      "architecture": [
+        "Express services manage business logic for ordering, tracking, and restaurant operations.",
+        "MongoDB supports operational data access patterns for both customer and admin views.",
+        "API aggregation endpoints power dashboard-level reporting requirements."
+      ],
+      "qualitySignals": [
+        "Lifecycle-driven APIs reduced state mismatches between client and server.",
+        "Aggregation endpoints simplified dashboard data fetching and reduced client complexity.",
+        "Backend contract consistency improved maintainability across product surfaces."
+      ],
+      "impact": [
+        "Streamlined order operations across customer and admin experiences.",
+        "Improved operational visibility through analytics-oriented endpoints.",
+        "Maintained consistent lifecycle handling to reduce state mismatches."
+      ],
+      "challenges": [
+        "Coordinating multiple order states without race-condition style inconsistencies.",
+        "Keeping dashboard reporting responsive with growing operational data."
+      ],
+      "nextSteps": [
+        "Add event-driven notifications for restaurant and delivery state changes.",
+        "Introduce caching for high-frequency dashboard queries."
+      ],
+      "tags": [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB"
+      ],
+      "date": "Oct 2025",
+      "status": "Completed",
+      "bgColor": "bg-[#10B981]",
+      "iconKey": "utensils",
+      "coverImage": "/images/projects/snapdish.svg",
+      "github": "https://github.com/kireeti-ai/Snap-dish"
+    },
+    {
+      "slug": "air-quality-forecasting-system",
+      "title": "Air Quality Forecasting System",
+      "summary": "Built an AQI forecasting pipeline and benchmarked models to improve predictive performance.",
+      "description": "This project applies machine learning to air quality prediction, combining data analysis and model comparison to optimize AQI forecasting quality.",
+      "role": "ML + Backend Engineer",
+      "projectType": "Data/ML Application",
+      "timeline": "Aug 2025",
+      "focus": "Regression modeling, feature analysis, model serving",
+      "problem": "AQI trends are influenced by multiple pollutants, making accurate forecasting difficult without careful model and feature selection.",
+      "goals": [
+        "Identify high-signal pollutant features for AQI prediction.",
+        "Benchmark model families and select the most reliable performer.",
+        "Serve predictions through an API-ready backend workflow."
+      ],
+      "ownership": [
+        "Conducted EDA to identify high-signal pollutant relationships.",
+        "Benchmarked regression algorithms and selected Random Forest as best performer.",
+        "Packaged model inference into a Flask-based serving workflow."
+      ],
+      "constraints": [
+        "Model performance needed to generalize instead of fitting only historical patterns.",
+        "Serving pipeline had to remain simple enough for practical integration."
+      ],
+      "architecture": [
+        "Data preprocessing and feature engineering pipeline feeds candidate models.",
+        "Model evaluation workflow compares algorithms using consistent validation criteria.",
+        "Flask endpoint serves AQI predictions for application-level consumption."
+      ],
+      "qualitySignals": [
+        "Model evaluation pipeline ensured like-for-like comparisons across algorithms.",
+        "Feature analysis reduced noise and improved interpretability of predictions.",
+        "API-based serving made the model usable beyond notebook experimentation."
+      ],
+      "impact": [
+        "Achieved an R² score of 87% with Random Forest.",
+        "Improved model reliability by grounding feature selection in EDA findings.",
+        "Made forecasting usable through an API-oriented serving layer."
+      ],
+      "challenges": [
+        "Avoiding overfitting while optimizing for higher predictive accuracy.",
+        "Translating offline model performance into a practical serving workflow."
+      ],
+      "nextSteps": [
+        "Add periodic retraining with fresh environmental data.",
+        "Track model drift and confidence bands in prediction responses."
+      ],
+      "tags": [
+        "Python",
+        "Scikit-Learn",
+        "Random Forest",
+        "Flask"
+      ],
+      "date": "Aug 2025",
+      "status": "Completed",
+      "bgColor": "bg-[#F59E0B]",
+      "iconKey": "chart",
+      "coverImage": "/images/projects/air-quality-forecasting-system.svg",
+      "github": "https://github.com/kireeti-ai"
+    }
+  ],
+  "skills": [
+    {
+      "title": "Languages",
+      "description": "Java, Python, C/C++, JavaScript - Strong foundation in multiple programming paradigms.",
+      "bgColor": "bg-[#6366F1]"
+    },
+    {
+      "title": "Backend Frameworks",
+      "description": "Spring Boot, Node.js, Express.js, FastAPI - Building scalable and secure REST APIs.",
+      "bgColor": "bg-[#2F81F7]"
+    },
+    {
+      "title": "Frontend",
+      "description": "React.js - Creating responsive and interactive user interfaces with modern patterns.",
+      "bgColor": "bg-[#FF6B7A]"
+    },
+    {
+      "title": "Databases",
+      "description": "MySQL, MongoDB (NoSQL), PostgreSQL - Relational and document-based data management.",
+      "bgColor": "bg-[#10B981]"
+    },
+    {
+      "title": "Cloud & DevOps",
+      "description": "AWS, Azure (ACA, ACR, Blob Storage), Git, GitHub - Cloud deployment and version control.",
+      "bgColor": "bg-[#F59E0B]"
+    },
+    {
+      "title": "ML & AI",
+      "description": "Pandas, NumPy, Scikit-learn, YOLOv8 - Machine learning and computer vision applications.",
+      "bgColor": "bg-[#8B5CF6]"
+    }
+  ],
+  "technologies": [
+    {
+      "name": "Java",
+      "color": "bg-[#E76F00]"
+    },
+    {
+      "name": "Python",
+      "color": "bg-[#3776AB]"
+    },
+    {
+      "name": "React",
+      "color": "bg-[#61DAFB]"
+    },
+    {
+      "name": "Node.js",
+      "color": "bg-[#339933]"
+    },
+    {
+      "name": "Spring Boot",
+      "color": "bg-[#6DB33F]"
+    },
+    {
+      "name": "FastAPI",
+      "color": "bg-[#009688]"
+    },
+    {
+      "name": "MongoDB",
+      "color": "bg-[#47A248]"
+    },
+    {
+      "name": "MySQL",
+      "color": "bg-[#4479A1]"
+    },
+    {
+      "name": "AWS",
+      "color": "bg-[#FF9900]"
+    },
+    {
+      "name": "Azure",
+      "color": "bg-[#0078D4]"
+    },
+    {
+      "name": "Docker",
+      "color": "bg-[#2496ED]"
+    },
+    {
+      "name": "Git",
+      "color": "bg-[#F05032]"
+    }
+  ],
+  "profile": {
+    "name": "Kireeti",
+    "roleBadge": "Backend Engineer · Open to opportunities",
+    "heroIntro": "I'm",
+    "heroHighlight": "Kireeti",
+    "heroSubheadline": "I design scalable APIs and reliable backend systems with clean architecture and performance in mind.",
+    "heroDescription": "Pre-final year B.Tech Computer Science student with hands-on experience in building software products and strong fundamentals in Data Structures & Algorithms, DBMS, Operating Systems, and Computer Networks.",
+    "heroSkills": [
+      "Node.js",
+      "Java",
+      "PostgreSQL",
+      "AWS"
+    ],
+    "aboutDescription": "Pre-final year B.Tech Computer Science student at Amrita Vishwa Vidyapeetham with hands-on experience in software development. Experienced in working with relational and NoSQL database systems and cloud platforms, with an interest in developing scalable, secure, and high-performance software applications.",
+    "educationTitle": "B.Tech in Computer Science",
+    "educationDescription": "Amrita Vishwa Vidyapeetham, Coimbatore | Aug 2023 - Present | CGPA: 7.18/10.0",
+    "certificationsTitle": "Certifications",
+    "certificationsDescription": "Introduction to Deep Learning (Kaggle) | Hands-On Data Warehousing Workshop (Snowflake)",
+    "opportunitiesText": "Currently looking for internship opportunities in software development and backend engineering roles.",
+    "footerBio": "Pre-final year B.Tech Computer Science student passionate about building scalable software applications.",
+    "email": "kireetiv2005@gmail.com",
+    "phone": "+91-9392509139",
+    "location": "Coimbatore, India",
+    "githubUrl": "https://github.com/kireeti-ai",
+    "linkedinUrl": "https://linkedin.com/in/kireeti",
+    "resumeUrl": "/kireeti_resume.pdf"
+  }
+}

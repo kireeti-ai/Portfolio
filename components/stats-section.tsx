@@ -99,8 +99,8 @@ export function StatsSection() {
     },
     {
       icon: <Award className="w-8 h-8 text-white" />,
-      value: 2,
-      suffix: "",
+      value: 5,
+      suffix: "+",
       label: "Certifications",
       color: "bg-[#10B981]",
     },

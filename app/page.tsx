@@ -5,7 +5,6 @@ import { AboutSection } from "@/components/about-section"
 import { StatsSection } from "@/components/stats-section"
 import { GitHubActivitySection } from "@/components/github-activity-section"
 import { ServicesSection } from "@/components/services-section"
-import { SkillBars } from "@/components/skill-bars"
 import { PortfolioSection } from "@/components/portfolio-section"
 import { ExperienceSection } from "@/components/experience-section"
 import { ContactSection } from "@/components/contact-section"
@@ -13,25 +12,27 @@ import { Footer } from "@/components/footer"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { CursorFollower } from "@/components/cursor-follower"
 import { LoadingScreen } from "@/components/loading-screen"
+import { getPortfolioContent } from "@/lib/portfolio-content"
 
-export default function Home() {
+export default async function Home() {
+  const content = await getPortfolioContent()
+
   return (
     <>
       <LoadingScreen />
       <CursorFollower />
       <main className="min-h-screen bg-[#FFFFFF] scroll-smooth">
         <Navigation />
-        <HeroSection />
-        <TechMarquee />
+        <HeroSection profile={content.profile} />
+        <TechMarquee items={content.technologies} />
         <StatsSection />
         <GitHubActivitySection />
-        <AboutSection />
-        <ServicesSection />
-        <SkillBars />
-        <PortfolioSection />
+        <AboutSection profile={content.profile} />
+        <ServicesSection skills={content.skills} />
+        <PortfolioSection projects={content.projects} />
         <ExperienceSection />
-        <ContactSection />
-        <Footer />
+        <ContactSection profile={content.profile} />
+        <Footer profile={content.profile} technologies={content.technologies} />
         <ScrollToTop />
       </main>
     </>

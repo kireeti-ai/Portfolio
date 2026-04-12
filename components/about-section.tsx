@@ -6,8 +6,13 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
+import type { ProfileContent } from "@/lib/portfolio-types"
 
-export function AboutSection() {
+interface AboutSectionProps {
+  profile: ProfileContent
+}
+
+export function AboutSection({ profile }: AboutSectionProps) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
@@ -55,7 +60,7 @@ export function AboutSection() {
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              Pre-final year B.Tech Computer Science student at Amrita Vishwa Vidyapeetham with hands-on experience in software development. Experienced in working with relational and NoSQL database systems and cloud platforms, with an interest in developing scalable, secure, and high-performance software applications.
+               {profile.aboutDescription}
             </motion.p>
           </div>
 
@@ -73,10 +78,10 @@ export function AboutSection() {
               <div>
                 <h3 className="text-lg md:text-xl font-bold mb-2 flex items-center gap-2">
                   <GraduationCap className="w-5 h-5" />
-                  B.Tech in Computer Science
+                   {profile.educationTitle}
                 </h3>
                 <p className="text-gray-600 text-sm md:text-base">
-                  Amrita Vishwa Vidyapeetham, Coimbatore | Aug 2023 - Present | CGPA: 7.18/10.0
+                   {profile.educationDescription}
                 </p>
               </div>
             </motion.div>
@@ -94,10 +99,10 @@ export function AboutSection() {
               <div>
                 <h3 className="text-lg md:text-xl font-bold mb-2 flex items-center gap-2">
                   <Award className="w-5 h-5" />
-                  Certifications
+                   {profile.certificationsTitle}
                 </h3>
                 <p className="text-gray-600 text-sm md:text-base">
-                  Introduction to Deep Learning (Kaggle) | Hands-On Data Warehousing Workshop (Snowflake)
+                   {profile.certificationsDescription}
                 </p>
               </div>
             </motion.div>
@@ -109,7 +114,7 @@ export function AboutSection() {
             transition={{ duration: 0.5, delay: 0.7 }}
           >
             <Button asChild className="bg-[#0B0B0B] text-white hover:bg-black/90 rounded-lg py-5 px-8 md:py-[22px] md:px-[62px] text-base md:text-lg font-semibold h-auto w-full sm:w-auto sm:min-w-[240px] hover:scale-105 transition-transform">
-              <a href="mailto:vkireeti16@gmail.com">
+              <a href={profile.resumeUrl} target="_blank" rel="noopener noreferrer">
                 <FileText className="w-5 h-5" />
                 Download Resume
               </a>

@@ -47,3 +47,30 @@ That’s it — you have a clean, modern portfolio site ready to ship.
 ---
 
 If you end up customizing this, I’d like to see what you build.
+
+## Contact Form Email Setup
+
+The contact form now posts to `/api/contact` and sends mail through Resend.
+
+Set these environment variables before running:
+
+- `RESEND_API_KEY` - your Resend API key
+- `CONTACT_TO_EMAIL` - destination inbox that should receive form submissions
+- `CONTACT_FROM_EMAIL` - sender address (optional). Defaults to `Portfolio Contact <onboarding@resend.dev>`
+
+## Admin Panel (Projects + Tech Stack + Skills)
+
+You can now manage portfolio content from `/admin`.
+
+Set this environment variable:
+
+- `ADMIN_PASSWORD` - password used for admin login
+
+Then:
+
+1. Start the app with `npm run dev`
+2. Open `/admin/login`
+3. Sign in and update profile/contact text, projects, technical skills cards, and marquee technologies
+4. Click **Save changes**
+
+Saved content is stored in `data/portfolio-content.json`.

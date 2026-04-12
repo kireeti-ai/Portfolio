@@ -65,7 +65,7 @@ export function ExperienceSection() {
               transition={{ duration: 0.5, delay: 0.5 }}
             >
               <Button asChild className="bg-white text-black hover:bg-gray-50 rounded-lg py-5 px-8 md:py-[22px] md:px-[62px] text-base md:text-lg font-semibold h-auto w-full sm:w-auto sm:min-w-[240px] hover:scale-105 transition-transform">
-                <a href="mailto:vkireeti16@gmail.com">
+                <a href="mailto:kireetiv2005@gmail.com">
                   <FileText className="w-5 h-5" />
                   Contact Me
                 </a>

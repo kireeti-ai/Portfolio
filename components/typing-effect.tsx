@@ -12,6 +12,7 @@ export function TypingEffect({ words, className = "" }: TypingEffectProps) {
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
   const [currentText, setCurrentText] = useState("")
   const [isDeleting, setIsDeleting] = useState(false)
+  const maxWordLength = Math.max(...words.map((word) => word.length), 0)
 
   useEffect(() => {
     const word = words[currentWordIndex]
@@ -39,7 +40,7 @@ export function TypingEffect({ words, className = "" }: TypingEffectProps) {
   }, [currentText, isDeleting, currentWordIndex, words])
 
   return (
-    <span className={className}>
+    <span className={`inline-flex items-center whitespace-nowrap ${className}`} style={{ minWidth: `${maxWordLength}ch` }}>
       <AnimatePresence mode="wait">
         <motion.span
           key={currentText}

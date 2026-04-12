@@ -1,54 +1,19 @@
 "use client"
 
-import { Mail, Code, Server, Database, Cloud, Cpu, Layers } from 'lucide-react'
+import { Mail } from 'lucide-react'
 import { Button } from "@/components/ui/button"
-import Image from "next/image"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
+import type { AdminSkill } from "@/lib/portfolio-types"
 
-export function ServicesSection() {
+interface ServicesSectionProps {
+  skills: AdminSkill[]
+}
+
+export function ServicesSection({ skills }: ServicesSectionProps) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
-
-  const skills = [
-    {
-      title: "Languages",
-      description: "Java, Python, C/C++, JavaScript - Strong foundation in multiple programming paradigms.",
-      icon: Code,
-      bgColor: "bg-[#6366F1]",
-    },
-    {
-      title: "Backend Frameworks",
-      description: "Spring Boot, Node.js, Express.js, FastAPI - Building scalable and secure REST APIs.",
-      icon: Server,
-      bgColor: "bg-[#2F81F7]",
-    },
-    {
-      title: "Frontend",
-      description: "React.js - Creating responsive and interactive user interfaces with modern patterns.",
-      icon: Layers,
-      bgColor: "bg-[#FF6B7A]",
-    },
-    {
-      title: "Databases",
-      description: "MySQL, MongoDB (NoSQL), PostgreSQL - Relational and document-based data management.",
-      icon: Database,
-      bgColor: "bg-[#10B981]",
-    },
-    {
-      title: "Cloud & DevOps",
-      description: "AWS, Azure (ACA, ACR, Blob Storage), Git, GitHub - Cloud deployment and version control.",
-      icon: Cloud,
-      bgColor: "bg-[#F59E0B]",
-    },
-    {
-      title: "ML & AI",
-      description: "Pandas, NumPy, Scikit-learn, YOLOv8 - Machine learning and computer vision applications.",
-      icon: Cpu,
-      bgColor: "bg-[#8B5CF6]",
-    },
-  ]
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -100,7 +65,6 @@ export function ServicesSection() {
             animate={isInView ? "visible" : "hidden"}
           >
             {skills.map((skill, index) => {
-              const IconComponent = skill.icon
               return (
                 <motion.div
                   key={index}
@@ -108,16 +72,10 @@ export function ServicesSection() {
                   whileHover={{ y: -8, boxShadow: "8px 8px 0px 0px rgba(0,0,0,1)" }}
                   className="bg-white border-[3px] border-black rounded-[32px] overflow-hidden transition-all duration-300 flex flex-col group cursor-pointer"
                 >
-                  <div className={`${skill.bgColor} p-8 flex items-center justify-center`}>
-                    <motion.div
-                      whileHover={{ rotate: 360, scale: 1.1 }}
-                      transition={{ duration: 0.6 }}
-                    >
-                      <IconComponent className="w-16 h-16 text-white" strokeWidth={1.5} />
-                    </motion.div>
+                  <div className={`${skill.bgColor} px-8 py-6`}>
+                    <h3 className="text-[24px] leading-[32px] font-bold text-white">{skill.title}</h3>
                   </div>
                   <div className="px-8 py-8 flex-1 flex flex-col">
-                    <h3 className="text-[24px] leading-[32px] font-bold mb-3 text-[#0B0B0B]">{skill.title}</h3>
                     <p className="text-[16px] leading-[26px] font-medium text-[#393939]">{skill.description}</p>
                   </div>
                 </motion.div>
@@ -129,31 +87,12 @@ export function ServicesSection() {
               variants={cardVariants}
               whileHover={{ y: -4 }}
             >
-              <motion.div 
-                className="mb-6"
-                animate={{ 
-                  y: [0, -10, 0],
-                }}
-                transition={{ 
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
-                <Image
-                  src="/images/get-in-touch.svg"
-                  alt="Get in touch"
-                  width={92}
-                  height={92}
-                  className="w-[72px] h-[72px]"
-                />
-              </motion.div>
               <h3 className="text-[28px] leading-[40px] font-bold mb-4 text-[#0B0B0B]">Interested in working together?</h3>
               <p className="text-[18px] leading-[30px] font-medium text-[#393939] mb-6 max-w-xl">
                 {"I'm"} always open to discussing new projects, opportunities, or collaborations. Let&apos;s build something amazing!
               </p>
               <Button asChild className="bg-black text-white hover:bg-black/90 rounded-[16px] px-12 py-6 font-medium text-[18px] h-[64px] hover:scale-105 transition-transform">
-                <a href="mailto:vkireeti16@gmail.com">
+                <a href="#contact">
                   <Mail className="w-5 h-5 mr-2" />
                   Get in touch
                 </a>

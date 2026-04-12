@@ -170,9 +170,9 @@ const Contact = () => {
                 </div>
 
                 <div className="direct-links">
-                  <a href="mailto:vkireeti16@gmail.com" className="terminal-link">
+                  <a href="mailto:kireetiv2005@gmail.com" className="terminal-link">
                     <Mail size={18} /> 
-                    <span className="hover-text">vkireeti16@gmail.com</span>
+                    <span className="hover-text">kireetiv2005@gmail.com</span>
                   </a>
                   
                   <a href="https://www.linkedin.com/in/kireeti-v" target="_blank" rel="noopener noreferrer" className="terminal-link">

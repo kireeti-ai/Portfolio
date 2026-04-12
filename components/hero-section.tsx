@@ -1,66 +1,98 @@
 "use client"
 
-import { Mail, FolderOpen, Github, Linkedin, Download } from "lucide-react"
+import { Mail, FolderOpen, Github, Linkedin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { TypingEffect } from "./typing-effect"
+import type { ProfileContent } from "@/lib/portfolio-types"
 
-export function HeroSection() {
+interface HeroSectionProps {
+  profile: ProfileContent
+}
+
+export function HeroSection({ profile }: HeroSectionProps) {
+  const skills = profile.heroSkills
+
   return (
-    <section className="container mx-auto px-4 py-16 md:py-24">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        <motion.div 
-          className="space-y-6"
+    <section className="container mx-auto px-4 pb-16 pt-14 md:pb-24 md:pt-20">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+        <motion.div
+          className="space-y-8"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <motion.h1 
-            className="text-[42px] leading-[50px] md:text-[72px] font-bold md:leading-[85px]"
+          <motion.p
+            className="inline-flex items-center rounded-full border-2 border-black bg-white px-4 py-2 text-sm font-semibold text-[#393939] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            {"I'm"} <motion.span 
-              className="bg-[#FF6B7A] text-white px-3 py-1 inline-block"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.4, delay: 0.4 }}
-            >Kireeti</motion.span>, a{" "}
-            <span className="bg-[#2F81F7] text-white px-3 py-1 inline-block">
-              <TypingEffect 
-                words={["Software Developer", "Backend Engineer", "Full-Stack Dev", "Problem Solver"]} 
-              />
-            </span>
+            {profile.roleBadge}
+          </motion.p>
+
+          <motion.h1
+            className="text-4xl font-black leading-tight tracking-tight text-[#0B0B0B] sm:text-5xl lg:text-6xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            {profile.heroIntro} <span className="text-[#FF6B7A]">{profile.heroHighlight}</span>
           </motion.h1>
 
-          <motion.p 
-            className="text-[#393939] text-[16px] md:text-[18px] font-medium leading-[28px] md:leading-[30px] max-w-xl"
+          <motion.p
+            className="max-w-2xl text-xl font-semibold leading-relaxed text-[#2F81F7] sm:text-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            Pre-final year B.Tech Computer Science student with hands-on experience in software development and strong
-            fundamentals in Data Structures & Algorithms, DBMS, Operating Systems, and Computer Networks.
+            {profile.heroSubheadline}
           </motion.p>
 
-          <motion.div 
-            className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-7 pt-4"
+          <motion.p
+            className="max-w-xl text-base font-medium leading-8 text-[#393939] md:text-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            {profile.heroDescription}
+          </motion.p>
+
+          <motion.div
+            className="flex flex-wrap gap-3"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
           >
-            <Button asChild className="bg-[#0B0B0B] text-white hover:bg-black/90 rounded-lg py-5 px-8 md:py-[22px] md:px-[62px] text-base md:text-lg font-semibold h-auto w-full sm:w-auto sm:min-w-[240px] hover:scale-105 transition-transform">
-              <a href="mailto:vkireeti16@gmail.com">
-                <Mail className="w-5 h-5" />
-                Get in touch
-              </a>
+            {skills.map((skill) => (
+              <span
+                key={skill}
+                className="rounded-full border-2 border-black bg-white px-4 py-1.5 text-sm font-semibold text-[#0B0B0B]"
+              >
+                {skill}
+              </span>
+            ))}
+          </motion.div>
+
+          <motion.div
+            className="flex flex-col gap-4 pt-2 sm:flex-row sm:flex-wrap sm:gap-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
+            <Button
+              asChild
+              className="h-auto w-full rounded-lg bg-[#0B0B0B] px-8 py-4 text-base font-semibold text-white transition-transform hover:scale-105 hover:bg-black/90 sm:w-auto sm:min-w-[210px]"
+            >
+                <a href="#contact">
+                  <Mail className="w-5 h-5" />
+                  Get in touch
+                </a>
             </Button>
             <Button
               asChild
               variant="outline"
-              className="bg-white border-[3px] border-black hover:bg-gray-50 rounded-lg py-5 px-8 md:py-[22px] md:px-[62px] text-base md:text-lg font-semibold h-auto w-full sm:w-auto sm:min-w-[240px] hover:scale-105 transition-transform"
+              className="h-auto w-full rounded-lg border-[3px] border-black bg-white px-8 py-4 text-base font-semibold transition-transform hover:scale-105 hover:bg-gray-50 sm:w-auto sm:min-w-[210px]"
             >
               <a href="#projects">
                 <FolderOpen className="w-5 h-5" />
@@ -69,53 +101,58 @@ export function HeroSection() {
             </Button>
           </motion.div>
 
-          <motion.div 
-            className="flex gap-4 pt-2"
+          <motion.div
+            className="flex gap-4 pt-1"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
+            transition={{ duration: 0.6, delay: 1 }}
           >
-            <motion.a 
-              href="https://github.com/kireeti-ai" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="w-12 h-12 bg-black rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors"
+            <motion.a
+               href={profile.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub Profile"
+              className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-black bg-black text-white transition-colors hover:bg-gray-800"
               whileHover={{ scale: 1.1, rotate: 5 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Github className="w-6 h-6 text-white" />
+              <Github className="h-6 w-6" />
             </motion.a>
-            <motion.a 
-              href="https://linkedin.com/in/kireeti" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="w-12 h-12 bg-[#0077B5] rounded-full flex items-center justify-center hover:bg-[#006399] transition-colors"
+            <motion.a
+               href={profile.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn Profile"
+              className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-black bg-[#0077B5] text-white transition-colors hover:bg-[#006399]"
               whileHover={{ scale: 1.1, rotate: -5 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Linkedin className="w-6 h-6 text-white" />
+              <Linkedin className="h-6 w-6" />
             </motion.a>
           </motion.div>
         </motion.div>
 
-        <motion.div 
-          className="flex justify-center md:justify-end"
+        <motion.div
+          className="flex justify-center lg:justify-end"
           initial={{ opacity: 0, x: 50, rotate: -5 }}
           animate={{ opacity: 1, x: 0, rotate: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
         >
-          <motion.div 
-            className="relative w-full max-w-md aspect-square bg-[#FDB927] border-4 border-black rounded-3xl overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
-            whileHover={{ scale: 1.02, rotate: 2 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Image
-              src="/images/kireeti-profile.jpeg"
-              alt="Kireeti - Software Developer"
-              fill
-              className="object-cover object-top"
-            />
-          </motion.div>
+          <div className="relative w-full max-w-md">
+            <div className="pointer-events-none absolute -inset-5 rounded-[2rem] bg-[#2F81F7]/20 blur-2xl" />
+            <motion.div
+              className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border-4 border-black bg-[#FDB927] shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]"
+              whileHover={{ y: -6, rotate: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Image
+                src="/images/kireeti-profile.jpeg"
+                alt="Kireeti - Software Developer"
+                fill
+                className="object-cover object-top"
+              />
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

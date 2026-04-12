@@ -26,16 +26,15 @@ export function CursorFollower() {
     }
 
     const handleMouseEnter = (e: MouseEvent) => {
-      const target = e.target as HTMLElement
-      if (
-        target.tagName === "A" ||
-        target.tagName === "BUTTON" ||
-        target.closest("a") ||
-        target.closest("button") ||
-        target.classList.contains("cursor-pointer")
-      ) {
-        setIsHovering(true)
+      if (!(e.target instanceof Element)) {
+        setIsHovering(false)
+        return
       }
+
+      const isInteractive =
+        e.target.matches("a, button, .cursor-pointer") || Boolean(e.target.closest("a, button, .cursor-pointer"))
+
+      setIsHovering(isInteractive)
     }
 
     const handleMouseLeave = () => {

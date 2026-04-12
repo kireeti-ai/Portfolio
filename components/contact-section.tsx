@@ -2,49 +2,78 @@
 
 import { useState, useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { Send, Mail, MapPin, Phone, CheckCircle } from "lucide-react"
+import { Send, Mail, MapPin, Phone, CheckCircle, AlertCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import type { ProfileContent } from "@/lib/portfolio-types"
 
-export function ContactSection() {
+interface ContactSectionProps {
+  profile: ProfileContent
+}
+
+export function ContactSection({ profile }: ContactSectionProps) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState("")
+  const [submitSuccess, setSubmitSuccess] = useState("")
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Here you would typically send the form data to your backend
-    setIsSubmitted(true)
-    setTimeout(() => {
-      setIsSubmitted(false)
+    setSubmitError("")
+    setSubmitSuccess("")
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+
+      const result = (await response.json().catch(() => null)) as { error?: string } | null
+
+      if (!response.ok) {
+        throw new Error(result?.error || "Failed to send message. Please try again.")
+      }
+
+      setIsSubmitted(true)
+      setSubmitSuccess("Message sent successfully.")
       setFormData({ name: "", email: "", message: "" })
-    }, 3000)
+      setTimeout(() => setIsSubmitted(false), 3000)
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Something went wrong. Please try again."
+      setSubmitError(message)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6" />,
       label: "Email",
-      value: "vkireeti16@gmail.com",
-      href: "mailto:vkireeti16@gmail.com",
+      value: profile.email,
+      href: `mailto:${profile.email}`,
       color: "bg-[#6366F1]",
     },
     {
       icon: <Phone className="w-6 h-6" />,
       label: "Phone",
-      value: "+91-9392509139",
-      href: "tel:+919392509139",
+      value: profile.phone,
+      href: `tel:${profile.phone.replace(/\s+/g, "")}`,
       color: "bg-[#2F81F7]",
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       label: "Location",
-      value: "Coimbatore, India",
+      value: profile.location,
       href: "#",
       color: "bg-[#FF6B7A]",
     },
@@ -106,7 +135,7 @@ export function ContactSection() {
               >
                 <h4 className="text-xl font-bold mb-2">Open for Opportunities</h4>
                 <p className="text-[#393939]">
-                  Currently looking for internship opportunities in software development and backend engineering roles.
+                  {profile.opportunitiesText}
                 </p>
               </motion.div>
             </motion.div>
@@ -173,9 +202,14 @@ export function ContactSection() {
                     <Button
                       type="submit"
                       className="w-full bg-black text-white hover:bg-gray-800 rounded-xl py-6 text-lg font-bold h-auto"
-                      disabled={isSubmitted}
+                      disabled={isSubmitted || isSubmitting}
                     >
-                      {isSubmitted ? (
+                      {isSubmitting ? (
+                        <>
+                          <Send className="w-5 h-5 mr-2 animate-pulse" />
+                          Sending...
+                        </>
+                      ) : isSubmitted ? (
                         <>
                           <CheckCircle className="w-5 h-5 mr-2" />
                           Message Sent!
@@ -187,6 +221,20 @@ export function ContactSection() {
                         </>
                       )}
                     </Button>
+
+                    {submitSuccess && (
+                      <div className="flex items-center gap-2 text-green-700 font-medium pt-2">
+                        <CheckCircle className="w-4 h-4" />
+                        <span>{submitSuccess}</span>
+                      </div>
+                    )}
+
+                    {submitError && (
+                      <div className="flex items-center gap-2 text-red-600 font-medium pt-2">
+                        <AlertCircle className="w-4 h-4" />
+                        <span>{submitError}</span>
+                      </div>
+                    )}
                   </motion.div>
                 </div>
               </form>

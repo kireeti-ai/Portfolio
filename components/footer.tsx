@@ -3,8 +3,14 @@
 import { Github, Linkedin, Mail, Phone, Heart, ArrowUp } from "lucide-react"
 import Image from "next/image"
 import { motion } from "framer-motion"
+import type { AdminTechnology, ProfileContent } from "@/lib/portfolio-types"
 
-export function Footer() {
+interface FooterProps {
+  profile: ProfileContent
+  technologies: AdminTechnology[]
+}
+
+export function Footer({ profile, technologies }: FooterProps) {
   const currentYear = new Date().getFullYear()
 
   return (
@@ -26,14 +32,14 @@ export function Footer() {
                     className="object-cover object-top w-full h-full"
                   />
                 </motion.div>
-                <span className="text-lg md:text-xl font-bold">Kireeti</span>
+                <span className="text-lg md:text-xl font-bold">{profile.name}</span>
               </div>
               <p className="text-gray-400 mb-6 text-sm leading-relaxed">
-                Pre-final year B.Tech Computer Science student passionate about building scalable software applications.
+                {profile.footerBio}
               </p>
               <div className="flex gap-3">
                 <motion.a
-                  href="https://github.com/kireeti-ai"
+                   href={profile.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-[#333] rounded-full flex items-center justify-center hover:bg-[#444] transition-colors"
@@ -43,7 +49,7 @@ export function Footer() {
                   <Github className="w-5 h-5" />
                 </motion.a>
                 <motion.a
-                  href="https://linkedin.com/in/kireeti"
+                   href={profile.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-[#0077B5] rounded-full flex items-center justify-center hover:bg-[#006399] transition-colors"
@@ -53,7 +59,7 @@ export function Footer() {
                   <Linkedin className="w-5 h-5" />
                 </motion.a>
                 <motion.a
-                  href="mailto:vkireeti16@gmail.com"
+                   href={`mailto:${profile.email}`}
                   className="w-10 h-10 bg-[#FF6B7A] rounded-full flex items-center justify-center hover:bg-[#FF5266] transition-colors"
                   whileHover={{ scale: 1.1, y: -3 }}
                   whileTap={{ scale: 0.95 }}
@@ -87,11 +93,9 @@ export function Footer() {
             <div>
               <h3 className="font-bold mb-4">Technologies</h3>
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li>Java & Spring Boot</li>
-                <li>React.js & Node.js</li>
-                <li>Python & FastAPI</li>
-                <li>AWS & Azure</li>
-                <li>MySQL & MongoDB</li>
+                 {technologies.slice(0, 5).map((tech) => (
+                   <li key={tech.name}>{tech.name}</li>
+                 ))}
               </ul>
             </div>
 
@@ -100,16 +104,16 @@ export function Footer() {
               <ul className="space-y-3 text-gray-400 text-sm">
                 <li className="flex items-center gap-2">
                   <Mail className="w-4 h-4" />
-                  <a href="mailto:vkireeti16@gmail.com" className="hover:text-white transition-colors">
-                    vkireeti16@gmail.com
-                  </a>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Phone className="w-4 h-4" />
-                  <a href="tel:+919392509139" className="hover:text-white transition-colors">
-                    +91-9392509139
-                  </a>
-                </li>
+                   <a href={`mailto:${profile.email}`} className="hover:text-white transition-colors">
+                     {profile.email}
+                   </a>
+                 </li>
+                 <li className="flex items-center gap-2">
+                   <Phone className="w-4 h-4" />
+                   <a href={`tel:${profile.phone.replace(/\s+/g, "")}`} className="hover:text-white transition-colors">
+                     {profile.phone}
+                   </a>
+                 </li>
               </ul>
             </div>
           </div>
@@ -117,7 +121,7 @@ export function Footer() {
           <div className="border-t border-gray-800 pt-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <p className="text-gray-400 text-sm flex items-center gap-1">
-                Made with <Heart className="w-4 h-4 text-[#FF6B7A] fill-current" /> by Kireeti
+                 Made with <Heart className="w-4 h-4 text-[#FF6B7A] fill-current" /> by {profile.name}
               </p>
               <p className="text-gray-400 text-sm">
                 {currentYear} All rights reserved.

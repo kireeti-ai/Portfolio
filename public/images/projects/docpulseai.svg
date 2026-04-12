@@ -1,0 +1,23 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1200" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E1B4B"/>
+      <stop offset="1" stop-color="#6366F1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" rx="36" fill="url(#g1)"/>
+  <rect x="92" y="108" width="1016" height="504" rx="24" fill="#0B1026" fill-opacity="0.8" stroke="#A5B4FC" stroke-opacity="0.5"/>
+  <circle cx="170" cy="168" r="10" fill="#F87171"/>
+  <circle cx="206" cy="168" r="10" fill="#FBBF24"/>
+  <circle cx="242" cy="168" r="10" fill="#34D399"/>
+  <rect x="140" y="228" width="280" height="24" rx="6" fill="#C7D2FE" fill-opacity="0.85"/>
+  <rect x="140" y="274" width="620" height="14" rx="5" fill="#A5B4FC" fill-opacity="0.6"/>
+  <rect x="140" y="304" width="540" height="14" rx="5" fill="#A5B4FC" fill-opacity="0.5"/>
+  <rect x="140" y="334" width="410" height="14" rx="5" fill="#A5B4FC" fill-opacity="0.45"/>
+  <rect x="800" y="246" width="250" height="270" rx="16" fill="#312E81" fill-opacity="0.9" stroke="#C7D2FE" stroke-opacity="0.6"/>
+  <rect x="834" y="286" width="182" height="16" rx="6" fill="#E0E7FF" fill-opacity="0.9"/>
+  <rect x="834" y="322" width="150" height="12" rx="5" fill="#C7D2FE" fill-opacity="0.6"/>
+  <rect x="834" y="348" width="170" height="12" rx="5" fill="#C7D2FE" fill-opacity="0.6"/>
+  <rect x="834" y="374" width="132" height="12" rx="5" fill="#C7D2FE" fill-opacity="0.6"/>
+  <text x="140" y="518" fill="#EEF2FF" font-family="Inter,Arial,sans-serif" font-size="44" font-weight="700">DocPulseAI</text>
+</svg>

@@ -49,7 +49,7 @@ export function Navigation() {
           whileTap={{ scale: 0.95 }}
         >
           <Button asChild className="bg-black text-white hover:bg-black/90 rounded-sm px-5 h-12 min-w-[48px] flex-shrink-0">
-            <a href="mailto:vkireeti16@gmail.com">
+            <a href="mailto:kireetiv2005@gmail.com">
               <Mail className="w-10 h-10" strokeWidth={2.5} />
             </a>
           </Button>
