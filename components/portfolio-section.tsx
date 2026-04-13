@@ -1,9 +1,9 @@
 "use client"
 
 import { ArrowRight, Github } from "lucide-react"
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import { useInView } from "framer-motion"
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 import type { Project } from "@/lib/projects"
@@ -16,6 +16,21 @@ export function PortfolioSection({ projects }: PortfolioSectionProps) {
   const router = useRouter()
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const [showAllProjects, setShowAllProjects] = useState(false)
+  const initialProjectCount = 6
+  const hasMoreProjects = projects.length > initialProjectCount
+  const visibleProjects = showAllProjects ? projects : projects.slice(0, initialProjectCount)
+  const cardVariants = {
+    hidden: { opacity: 0, y: 28, scale: 0.96 },
+    visible: (index: number) => ({
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.45, delay: Math.min(index * 0.06, 0.35), ease: "easeOut" },
+    }),
+    exit: { opacity: 0, y: 16, scale: 0.96, transition: { duration: 0.2 } },
+  }
+
   const navigateToProject = (slug: string) => {
     router.push(`/projects/${slug}`)
   }
@@ -43,38 +58,44 @@ export function PortfolioSection({ projects }: PortfolioSectionProps) {
           </p>
         </motion.div>
 
-        <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => {
-            return (
-              <motion.div
-                key={project.slug}
-                initial={{ opacity: 0, y: 40 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -6 }}
-                className="group cursor-pointer overflow-hidden rounded-[28px] border-[3px] border-black bg-white transition-all hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]"
-                role="link"
-                tabIndex={0}
-                onClick={(event) => {
-                  if (event.target instanceof Element && event.target.closest("a,button")) {
-                    return
-                  }
+        <motion.div layout className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <AnimatePresence mode="popLayout">
+            {visibleProjects.map((project, index) => {
+              const isCompleted = project.status === "Completed"
 
-                  navigateToProject(project.slug)
-                }}
-                onKeyDown={(event) => {
-                  if (event.key === "Enter" || event.key === " ") {
-                    event.preventDefault()
+              return (
+                <motion.div
+                  key={project.slug}
+                  layout
+                  custom={index}
+                  variants={cardVariants}
+                  initial="hidden"
+                  animate={isInView ? "visible" : "hidden"}
+                  exit="exit"
+                  whileHover={{ y: -8, transition: { duration: 0.2 } }}
+                  className="group cursor-pointer overflow-hidden rounded-[28px] border-[3px] border-black bg-white transition-all hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]"
+                  role="link"
+                  tabIndex={0}
+                  onClick={(event) => {
+                    if (event.target instanceof Element && event.target.closest("a,button")) {
+                      return
+                    }
+
                     navigateToProject(project.slug)
-                  }
-                }}
-              >
+                  }}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault()
+                      navigateToProject(project.slug)
+                    }
+                  }}
+                >
                 <div className="relative h-44 overflow-hidden">
                   <Image
                     src={project.coverImage}
                     alt={`${project.title} preview`}
                     fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                     sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent" />
@@ -89,14 +110,23 @@ export function PortfolioSection({ projects }: PortfolioSectionProps) {
                   >
                     {project.date}
                   </motion.span>
+                  <motion.span
+                    className={`ml-3 inline-flex items-center rounded-full border-2 px-3 py-1 text-xs font-extrabold uppercase tracking-wide ${
+                      isCompleted
+                        ? "border-[#065F46] bg-[#D1FAE5] text-[#065F46]"
+                        : "border-[#1E3A8A] bg-[#DBEAFE] text-[#1E3A8A]"
+                    }`}
+                    animate={!isCompleted ? { y: [0, -1, 0] } : {}}
+                    transition={{ duration: 1.6, repeat: Infinity, repeatType: "mirror" }}
+                  >
+                    <span
+                      className={`mr-1.5 inline-block h-2 w-2 rounded-full ${isCompleted ? "bg-[#059669]" : "bg-[#2563EB]"}`}
+                    />
+                    {project.status}
+                  </motion.span>
                 </div>
 
                 <div className="flex h-full flex-col p-6">
-                  <div className="mb-3">
-                    <span className="inline-flex items-center rounded-full border-2 border-black/20 bg-[#F3F4F6] px-3 py-1 text-xs font-bold text-[#111827]">
-                      Status: {project.status}
-                    </span>
-                  </div>
                   <div className="mb-4 flex flex-wrap gap-2">
                     {project.tags.map((tag, tagIndex) => (
                       <motion.span
@@ -121,14 +151,15 @@ export function PortfolioSection({ projects }: PortfolioSectionProps) {
                   </p>
 
                   <div className="mt-auto flex items-center justify-between gap-4">
-                    <button
+                    <motion.button
                       type="button"
                       onClick={() => navigateToProject(project.slug)}
                       className="inline-flex items-center gap-2 text-sm font-semibold text-[#0B0B0B] md:text-base"
+                      whileHover={{ x: 3 }}
                     >
-                      View details
+                      View case study
                       <ArrowRight className="w-4 h-4" />
-                    </button>
+                    </motion.button>
 
                     <motion.a
                     href={project.github}
@@ -144,9 +175,27 @@ export function PortfolioSection({ projects }: PortfolioSectionProps) {
                   </div>
                 </div>
               </motion.div>
-            )
-          })}
-        </div>
+              )
+            })}
+          </AnimatePresence>
+        </motion.div>
+
+        {hasMoreProjects && (
+          <motion.div
+            className="mb-10 flex justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
+            <button
+              type="button"
+              onClick={() => setShowAllProjects((previous) => !previous)}
+              className="rounded-[12px] border-2 border-black bg-white px-6 py-3 text-sm font-bold text-[#0B0B0B] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] md:text-base"
+            >
+              {showAllProjects ? "View fewer projects" : `View more projects (${projects.length - initialProjectCount})`}
+            </button>
+          </motion.div>
+        )}
 
         <motion.div 
           className="flex justify-center"

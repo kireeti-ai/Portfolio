@@ -2,7 +2,7 @@
 
 import { ArrowUpRight, Github } from "lucide-react"
 import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { cn } from "@/lib/utils"
 
 const CELL_SIZE = 12
@@ -72,12 +72,55 @@ const CONTRIBUTION_ROWS = Array.from({ length: 7 }, (_, day) =>
   Array.from({ length: WEEK_COUNT }, (_, week) => createContributionLevel(week, day)),
 )
 
+function CountUp({ value, isActive, duration = 1.3 }: { value: number; isActive: boolean; duration?: number }) {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    if (!isActive) {
+      return
+    }
+
+    let startTime = 0
+    let frameId = 0
+
+    const tick = (timestamp: number) => {
+      if (!startTime) startTime = timestamp
+      const progress = Math.min((timestamp - startTime) / (duration * 1000), 1)
+      setCount(Math.floor(progress * value))
+
+      if (progress < 1) {
+        frameId = requestAnimationFrame(tick)
+      }
+    }
+
+    frameId = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(frameId)
+  }, [duration, isActive, value])
+
+  return <>{count}</>
+}
+
 export function GitHubActivitySection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="activity" className="bg-[#F3F7FF] py-16 md:py-24" ref={ref}>
+    <section id="activity" className="relative overflow-hidden bg-[#F3F7FF] py-16 md:py-24" ref={ref}>
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-24 top-16 h-64 w-64 rounded-full bg-[#2F81F7]/20 blur-3xl"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={isInView ? { opacity: 1, scale: 1.1, x: [0, 24, 0], y: [0, 10, 0] } : {}}
+        transition={{ duration: 6, repeat: Infinity, repeatType: "mirror" }}
+      />
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-16 bottom-20 h-72 w-72 rounded-full bg-[#FFC224]/35 blur-3xl"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={isInView ? { opacity: 1, scale: 1.05, x: [0, -20, 0], y: [0, -14, 0] } : {}}
+        transition={{ duration: 7, repeat: Infinity, repeatType: "mirror", delay: 0.2 }}
+      />
+
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-7xl">
           <motion.div
@@ -87,7 +130,26 @@ export function GitHubActivitySection() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">
-              Building in <span className="inline-block bg-[#2F81F7] px-3 py-1 text-white">Public</span>
+              <span className="inline-flex flex-wrap justify-center gap-x-3 gap-y-1">
+                {["Building", "in"].map((word, index) => (
+                  <motion.span
+                    key={word}
+                    initial={{ opacity: 0, y: 18, rotate: -2 }}
+                    animate={isInView ? { opacity: 1, y: 0, rotate: 0 } : {}}
+                    transition={{ duration: 0.45, delay: 0.04 * index }}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+                <motion.span
+                  className="inline-block bg-[#2F81F7] px-3 py-1 text-white"
+                  initial={{ opacity: 0, scale: 0.85, rotate: -3 }}
+                  animate={isInView ? { opacity: 1, scale: 1, rotate: 0 } : {}}
+                  transition={{ type: "spring", stiffness: 220, damping: 16, delay: 0.16 }}
+                >
+                  Public
+                </motion.span>
+              </span>
             </h2>
             <p className="mx-auto max-w-2xl text-base font-medium leading-relaxed text-[#393939] md:text-lg">
               A quick snapshot of my GitHub rhythm across coursework, experiments, and shipped projects over the last year.
@@ -102,18 +164,35 @@ export function GitHubActivitySection() {
               whileHover={{ y: -4, boxShadow: "-8px 8px 0px 0px rgba(0,0,0,1)" }}
               className="rounded-[28px] border-[3px] border-black bg-[#FFC224] p-6 shadow-[-6px_6px_0px_0px_rgba(0,0,0,1)] md:p-7"
             >
-              <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-black bg-black text-white">
-                  <Github className="h-6 w-6" />
-                </div>
-                <div>
-                  <p className="text-sm font-bold uppercase tracking-[0.2em] text-black/70">GitHub Activity</p>
-                  <p className="text-sm font-semibold text-black/70">Last 12 months</p>
+                <div className="mb-4 flex items-center gap-3">
+                  <motion.div
+                    className="relative flex h-12 w-12 items-center justify-center rounded-full border-2 border-black bg-black text-white"
+                    animate={isInView ? { scale: [1, 1.06, 1] } : {}}
+                    transition={{ duration: 1.8, repeat: Infinity, repeatType: "mirror" }}
+                  >
+                    <motion.div
+                      aria-hidden="true"
+                      className="absolute inset-0 rounded-full border-2 border-black/45"
+                      animate={isInView ? { scale: [1, 1.35], opacity: [0.55, 0] } : {}}
+                      transition={{ duration: 1.6, repeat: Infinity, ease: "easeOut" }}
+                    />
+                    <Github className="h-6 w-6" />
+                  </motion.div>
+                  <div>
+                    <p className="text-sm font-bold uppercase tracking-[0.2em] text-black/70">GitHub Activity</p>
+                    <p className="text-sm font-semibold text-black/70">Last 12 months</p>
                 </div>
               </div>
 
               <div className="flex flex-wrap items-end gap-3">
-                <span className="text-5xl font-black leading-none md:text-6xl">{CONTRIBUTION_TOTAL}</span>
+                <motion.span
+                  className="text-5xl font-black leading-none md:text-6xl"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.45, delay: 0.25 }}
+                >
+                  <CountUp value={CONTRIBUTION_TOTAL} isActive={isInView} />
+                </motion.span>
                 <span className="pb-1 text-lg font-bold text-black/80 md:text-xl">contributions</span>
               </div>
 
@@ -139,7 +218,12 @@ export function GitHubActivitySection() {
 
               <div className="mt-6 inline-flex items-center gap-2 text-base font-bold text-[#0B0B0B]">
                 Visit kireeti-ai
-                <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+                <motion.div
+                  animate={isInView ? { y: [0, -2, 0], x: [0, 2, 0] } : {}}
+                  transition={{ duration: 1.8, repeat: Infinity, repeatType: "mirror" }}
+                >
+                  <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+                </motion.div>
               </div>
             </motion.a>
           </div>
@@ -160,7 +244,14 @@ export function GitHubActivitySection() {
               </div>
             </div>
 
-            <div className="overflow-x-auto pb-2">
+            <div className="relative overflow-x-auto pb-2">
+              <motion.div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-white/8 to-transparent"
+                initial={{ x: "-140%" }}
+                animate={isInView ? { x: ["-140%", "260%"] } : {}}
+                transition={{ duration: 1.2, delay: 0.7, ease: "easeInOut" }}
+              />
               <div className="min-w-[900px]">
                 <div
                   className="mb-3 ml-12 grid gap-[4px]"
@@ -195,13 +286,16 @@ export function GitHubActivitySection() {
                     className="space-y-[4px]"
                   >
                     {CONTRIBUTION_ROWS.map((row, dayIndex) => (
-                      <div
+                      <motion.div
                         key={dayIndex}
                         className="grid gap-[4px]"
                         style={{ gridTemplateColumns: `repeat(${WEEK_COUNT}, ${CELL_SIZE}px)` }}
+                        initial={{ opacity: 0, x: -24 }}
+                        animate={isInView ? { opacity: 1, x: 0 } : {}}
+                        transition={{ duration: 0.45, delay: 0.35 + dayIndex * 0.08 }}
                       >
                         {row.map((level, weekIndex) => (
-                          <div
+                          <motion.div
                             key={`${weekIndex}-${dayIndex}`}
                             aria-hidden="true"
                             className={cn(
@@ -209,9 +303,16 @@ export function GitHubActivitySection() {
                               HEATMAP_COLORS[level],
                             )}
                             style={{ width: CELL_SIZE, height: CELL_SIZE }}
+                            initial={{ opacity: 0, scale: 0.55 }}
+                            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                            transition={{
+                              duration: 0.22,
+                              delay: 0.4 + dayIndex * 0.05 + weekIndex * 0.005,
+                              ease: "easeOut",
+                            }}
                           />
                         ))}
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
                 </div>

@@ -1,0 +1,27 @@
+<svg width="1200" height="680" viewBox="0 0 1200 680" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="680" rx="36" fill="#2F81F7"/>
+  <rect x="44" y="44" width="1112" height="592" rx="28" fill="#0B0F19" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="4"/>
+
+  <circle cx="220" cy="210" r="58" fill="#39D353"/>
+  <circle cx="220" cy="210" r="92" stroke="#39D353" stroke-opacity="0.35" stroke-width="3"/>
+  <circle cx="220" cy="210" r="128" stroke="#39D353" stroke-opacity="0.2" stroke-width="3"/>
+
+  <circle cx="540" cy="150" r="58" fill="#FFC224"/>
+  <circle cx="540" cy="150" r="92" stroke="#FFC224" stroke-opacity="0.35" stroke-width="3"/>
+  <circle cx="540" cy="150" r="128" stroke="#FFC224" stroke-opacity="0.2" stroke-width="3"/>
+
+  <circle cx="860" cy="240" r="58" fill="#FF6B7A"/>
+  <circle cx="860" cy="240" r="92" stroke="#FF6B7A" stroke-opacity="0.35" stroke-width="3"/>
+  <circle cx="860" cy="240" r="128" stroke="#FF6B7A" stroke-opacity="0.2" stroke-width="3"/>
+
+  <path d="M220 210L540 150L860 240" stroke="white" stroke-opacity="0.7" stroke-width="5" stroke-linecap="round" stroke-dasharray="12 12"/>
+  <path d="M220 210L380 410L700 420L860 240" stroke="white" stroke-opacity="0.5" stroke-width="4" stroke-linecap="round"/>
+
+  <rect x="172" y="412" width="856" height="148" rx="18" fill="#111827" stroke="white" stroke-opacity="0.14" stroke-width="2"/>
+  <text x="216" y="472" fill="white" fill-opacity="0.95" font-family="Arial, sans-serif" font-size="44" font-weight="700">
+    Mobile Network Simulation System
+  </text>
+  <text x="216" y="520" fill="white" fill-opacity="0.7" font-family="Arial, sans-serif" font-size="26" font-weight="600">
+    Handover • Call Routing • Multi-Network Zones
+  </text>
+</svg>

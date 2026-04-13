@@ -2,55 +2,57 @@
   "projects": [
     {
       "slug": "docpulseai",
-      "title": "DocPulseAI - AI Platform for Code Intelligence",
-      "summary": "Built a repository intelligence platform that extracts APIs, entities, and dependencies from large codebases.",
-      "description": "DocPulseAI is a backend-focused platform for understanding complex repositories using AST-based analysis pipelines and service-oriented processing.",
+      "title": "DocPulseAI - Code Intelligence & Living Documentation",
+      "summary": "Built an AI-driven platform that keeps architecture docs synced with source code using AST analysis and CI workflows.",
+      "description": "DocPulseAI extracts API/entity/dependency metadata from repositories, generates architecture documentation and diagrams, and flags documentation drift.",
       "role": "Backend Engineer",
-      "projectType": "Personal Project",
+      "projectType": "Platform Engineering Project",
       "timeline": "Mar 2026",
-      "focus": "Code intelligence, backend services, cloud deployment",
-      "problem": "Large repositories are hard to understand quickly, especially when APIs and dependency relationships are spread across many modules.",
+      "focus": "AST code intelligence, living documentation, CI-based updates",
+      "problem": "Teams lose time when architecture docs become stale and system dependencies are not visible from code alone.",
       "goals": [
-        "Extract structured intelligence (APIs, entities, dependencies) from real-world repositories.",
-        "Provide fast queryable outputs for developers exploring unfamiliar codebases.",
-        "Deploy an analysis pipeline that can scale beyond local scripts."
+        "Extract APIs, entities, and service relationships directly from source code.",
+        "Generate living documentation and architecture diagrams automatically.",
+        "Integrate documentation refresh into CI workflows."
       ],
       "ownership": [
-        "Designed and implemented AST parsing workflows using Tree-sitter.",
-        "Built service logic to extract APIs, entities, and dependency relationships from repository code.",
-        "Containerized services and productionized deployment workflows on Azure."
+        "Implemented Tree-sitter powered analysis pipelines for repository scanning.",
+        "Designed backend services for metadata extraction and document generation.",
+        "Built dashboard flows for documentation health and repository impact insights."
       ],
       "constraints": [
-        "Needed to handle repositories with different code styles and architectural patterns.",
-        "Balanced depth of analysis with compute cost and response-time expectations."
+        "Needed consistent results across mixed coding styles and project structures.",
+        "Had to balance extraction depth with practical execution time."
       ],
       "architecture": [
-        "Parser and extraction services process repositories into structured metadata.",
-        "Data and artifacts are persisted using PostgreSQL and Blob Storage.",
-        "Deployed a microservices setup on Azure ACA/ACR for reproducible environment management."
+        "Tree-sitter based analysis engine parses repositories into structured metadata.",
+        "Documentation and drift-detection services generate and validate living docs.",
+        "React dashboard visualizes architecture insights and change summaries."
       ],
       "qualitySignals": [
-        "Service boundaries reduced coupling between parsing, extraction, and storage concerns.",
-        "Containerized deployment made environment behavior consistent across runs.",
-        "Cloud persistence enabled repeatable analysis workflows instead of one-off scripts."
+        "AST-based extraction reduced manual documentation drift.",
+        "Modular service boundaries kept analysis and rendering concerns separated.",
+        "CI-oriented flow enabled repeatable and automated updates."
       ],
       "impact": [
-        "Made codebase intelligence searchable and structured instead of manual and ad-hoc.",
-        "Improved developer onboarding and exploration speed for large repositories.",
-        "Delivered a cloud-ready deployment path for scaling analysis workloads."
+        "Reduced manual effort required to maintain technical documentation.",
+        "Improved onboarding clarity for unfamiliar repositories.",
+        "Made architecture insights directly queryable and reviewable."
       ],
       "challenges": [
-        "Balancing parsing depth and processing performance for large repositories.",
-        "Keeping extracted relationships consistent across different code patterns."
+        "Normalizing extracted signals across repositories with varying conventions.",
+        "Presenting technical findings in a way that remains useful for daily development."
       ],
       "nextSteps": [
-        "Add language-agnostic extraction modules for multi-language monorepos.",
-        "Introduce ranking/relevance signals for faster API and dependency discovery."
+        "Extend multi-language analyzers for broader repository coverage.",
+        "Improve ranking and relevance scoring for dependency exploration."
       ],
       "tags": [
-        "React.js",
+        "TypeScript",
         "Node.js",
-        "Express.js",
+        "React",
+        "Tree-sitter",
+        "PostgreSQL",
         "Azure"
       ],
       "date": "Mar 2026",
@@ -58,59 +60,62 @@
       "bgColor": "bg-[#6366F1]",
       "iconKey": "brain",
       "coverImage": "/images/projects/docpulseai.svg",
-      "github": "https://github.com/DocPulseAI"
+      "github": "https://github.com/kireeti-ai/ci-living-documentation"
     },
     {
       "slug": "edge-co-intelligence-system",
       "title": "Edge Co-Intelligence System",
-      "summary": "Built a distributed edge inference system that parallelizes YOLOv8 detection across worker nodes with fault tolerance.",
-      "description": "This project focuses on low-latency computer vision inference by distributing workloads across multiple edge workers and aggregating predictions in real time.",
+      "summary": "Designed a distributed YOLOv8 inference platform with worker heartbeats, weighted load balancing, and retry-aware failover.",
+      "description": "The system dispatches frames to edge workers, streams annotated output in real time, and provides Angular dashboards for operations and admin analytics.",
       "role": "Backend & Distributed Systems Engineer",
       "projectType": "Research / Systems Project",
       "timeline": "Feb 2026",
-      "focus": "Edge inference orchestration and low-latency backend design",
-      "problem": "Single-node inference pipelines become bottlenecks under high throughput and are fragile when a worker fails.",
+      "focus": "Distributed inference orchestration, real-time streaming, fault tolerance",
+      "problem": "Single-node inference became a bottleneck and failure hotspot under high-throughput workloads.",
       "goals": [
-        "Parallelize inference workloads across distributed worker nodes.",
-        "Keep end-to-end latency low while increasing throughput.",
-        "Maintain continuity when nodes fail or become unhealthy."
+        "Parallelize inference across worker nodes.",
+        "Maintain low latency while scaling throughput.",
+        "Recover gracefully from worker instability."
       ],
       "ownership": [
-        "Designed orchestration logic for distributing inference jobs across worker nodes.",
-        "Implemented health checks, retries, and failure recovery for resilient processing.",
-        "Built aggregation and response pipelines for real-time inference output."
+        "Built coordinator services for worker registration, heartbeat, and queue orchestration.",
+        "Implemented retry queues, circuit-breaker behavior, and health-aware dispatching.",
+        "Integrated real-time stream outputs and dashboard-facing metrics/summary APIs."
       ],
       "constraints": [
-        "Needed to coordinate variable worker performance and intermittent availability.",
-        "Real-time output required strict handling of response order and retries."
+        "Worker availability and processing capacity changed over time.",
+        "Ordering and consistency had to be preserved while handling retries."
       ],
       "architecture": [
-        "Controller routes inference requests to workers based on availability and load.",
-        "Workers run YOLOv8 inference and stream outputs for centralized aggregation.",
-        "Fault-tolerant logic handles retries and worker failover without stopping the full pipeline."
+        "FastAPI coordinator dispatches frames to edge worker agents for parallel YOLO inference.",
+        "Results pipeline aggregates detections and streams annotated MJPEG output.",
+        "Separate admin backend + Angular portal track cameras, analytics, and control commands."
       ],
       "qualitySignals": [
-        "Health-aware scheduling reduced avoidable failures from unstable workers.",
-        "Retry and failover strategy improved system resilience under node churn.",
-        "Streaming aggregation maintained usable real-time behavior under load."
+        "Health-aware scheduling reduced avoidable failures.",
+        "Failover and retry paths improved stability under churn.",
+        "Distributed design removed single-node bottlenecks."
       ],
       "impact": [
-        "Improved throughput by parallelizing inference workloads across multiple workers.",
-        "Reduced single-point-of-failure risk with health monitoring and retry strategy.",
-        "Enabled stable real-time detection under variable worker availability."
+        "Increased effective inference throughput.",
+        "Improved resiliency during worker failures.",
+        "Enabled steadier real-time response behavior."
       ],
       "challenges": [
-        "Managing worker coordination while keeping latency predictable.",
-        "Handling node failures without creating duplicate or dropped inference results."
+        "Balancing throughput, latency, and consistency simultaneously.",
+        "Avoiding duplicate or dropped results during failover."
       ],
       "nextSteps": [
-        "Add autoscaling policies based on queue depth and latency thresholds.",
-        "Introduce observability dashboards for worker-level performance diagnostics."
+        "Add autoscaling policies based on queue depth and latency.",
+        "Expose observability dashboards for worker-level diagnostics."
       ],
       "tags": [
         "Python",
         "FastAPI",
-        "YOLOv8"
+        "YOLOv8",
+        "Angular",
+        "OpenCV",
+        "Distributed Systems"
       ],
       "date": "Feb 2026",
       "status": "Completed",
@@ -121,58 +126,61 @@
     },
     {
       "slug": "quizora-ai",
-      "title": "Quizora AI - Online Assessment Platform",
-      "summary": "Developed a stateless assessment API with secure role-based access control and automated grading flows.",
-      "description": "Quizora AI is an online assessment platform centered on secure backend workflows for quiz creation, assignment, evaluation, and access control.",
+      "title": "Quizora - AI-Assisted Online Quiz Platform",
+      "summary": "Built an AI-assisted quiz platform with faculty/student role separation, secure code-based access, and auto-evaluation.",
+      "description": "Quizora enables faculty to generate questions from syllabus content, edit/publish assessments, and analyze attempts while students access quizzes via unique codes.",
       "role": "Backend Engineer",
       "projectType": "Product-Style Application",
-      "timeline": "Nov 2025",
-      "focus": "Secure API design, assessment workflow automation, RBAC",
-      "problem": "Assessment systems need secure multi-role workflows while keeping quiz creation, delivery, and grading consistent at scale.",
+      "timeline": "Jan 2026",
+      "focus": "AI-assisted quiz generation, secure role workflows, assessment automation",
+      "problem": "Traditional quiz systems are slow to author, hard to scale, and often weak on role-based access control.",
       "goals": [
-        "Support end-to-end quiz lifecycle for faculty and students.",
-        "Ensure secure role-based access to all sensitive operations.",
-        "Keep backend stateless and deployment-friendly."
+        "Enable faculty to generate/edit quiz content quickly with AI support.",
+        "Provide secure faculty and student workflows.",
+        "Automate scoring and performance analytics."
       ],
       "ownership": [
-        "Built stateless REST APIs in Spring Boot with transactional quiz lifecycle flows.",
-        "Implemented secure authentication and authorization with Spring Security and JWT.",
-        "Designed faculty and student RBAC paths for controlled access to sensitive operations."
+        "Implemented Spring Boot APIs for quiz authoring, publishing, attempts, and results.",
+        "Integrated Spring AI based question generation from uploaded syllabus/PDF content.",
+        "Built security flows with JWT auth, OTP-based verification, and role-based access control."
       ],
       "constraints": [
-        "Assessment data integrity had to be preserved across assignment and grading flows.",
-        "Authorization boundaries needed to be strict without blocking valid faculty workflows."
+        "AI-generated output needed faculty oversight before publishing.",
+        "Assessment flows required strict access boundaries by role."
       ],
       "architecture": [
-        "Spring Boot services expose APIs for quiz management, assignment, and grading.",
-        "MySQL stores users, quizzes, attempts, and evaluation state with transactional consistency.",
-        "JWT-based security layer enforces role-based access at API boundaries."
+        "Spring Boot services manage quiz lifecycle and evaluation workflows.",
+        "React frontend provides distinct faculty and student surfaces.",
+        "MySQL persistence stores users, quizzes, attempts, and analytics entities."
       ],
       "qualitySignals": [
-        "Transactional operations protected consistency in quiz distribution and scoring.",
-        "RBAC checks at API level reduced privilege misuse risk.",
-        "Stateless auth model simplified horizontal scaling behavior."
+        "Role-isolated workflows reduced unauthorized operations.",
+        "Automated scoring reduced grading turnaround time.",
+        "AI-assisted authoring improved quiz creation speed."
       ],
       "impact": [
-        "Enabled secure and role-aware access to all assessment workflows.",
-        "Reduced manual grading effort through automated result processing.",
-        "Kept backend stateless for easier scaling and deployment."
+        "Improved faculty productivity for assessment creation.",
+        "Delivered secure and simpler student quiz access with unique codes.",
+        "Provided analytics-ready data for performance review."
       ],
       "challenges": [
-        "Designing role boundaries that are strict but still practical for faculty workflows.",
-        "Maintaining transactional integrity across quiz distribution and grading operations."
+        "Maintaining reliable quiz integrity across authoring and publishing stages.",
+        "Ensuring generated questions stay academically relevant."
       ],
       "nextSteps": [
-        "Add audit trails for faculty-side content updates and grading overrides.",
-        "Expand analytics endpoints for cohort performance insights."
+        "Add deeper performance analytics across topic clusters.",
+        "Expand question quality checks and review tooling."
       ],
       "tags": [
         "Java",
         "Spring Boot",
+        "Spring AI",
         "MySQL",
-        "JWT"
+        "React",
+        "JWT",
+        "2FA"
       ],
-      "date": "Nov 2025",
+      "date": "Jan 2026",
       "status": "Completed",
       "bgColor": "bg-[#FF6B7A]",
       "iconKey": "zap",
@@ -180,59 +188,123 @@
       "github": "https://github.com/kireeti-ai/Quizora-ai"
     },
     {
-      "slug": "snapdish",
-      "title": "SnapDish - Food Delivery Platform",
-      "summary": "Built a full-stack food delivery platform with order lifecycle management and admin analytics capabilities.",
-      "description": "SnapDish combines customer-facing ordering flows with operational tooling for restaurants and administrators using a robust REST backend.",
-      "role": "Full-Stack Developer (Backend-focused)",
-      "projectType": "Full-Stack Product",
-      "timeline": "Oct 2025",
-      "focus": "Order lifecycle APIs, operations dashboards, data aggregation",
-      "problem": "Food delivery platforms require dependable order-state transitions and real-time operational visibility for restaurants and admins.",
+      "slug": "saatdin",
+      "title": "SaatDin - Parametric Income Insurance for Riders",
+      "summary": "Built an Android-first parametric insurance platform that auto-triggers payouts for delivery riders when disruption thresholds are hit.",
+      "description": "SaatDin protects weekly income for Q-commerce riders by monitoring weather, AQI, and traffic signals at pincode level and issuing automated payouts without manual claims.",
+      "role": "Backend + Product Systems Engineer",
+      "projectType": "Hackathon Product (Guidewire DEVTrails 2026)",
+      "timeline": "Apr 2026",
+      "focus": "Parametric insurance, risk decisioning, mobile-first operations",
+      "problem": "Delivery riders lose daily earnings during severe rain, poor air quality, and heavy traffic events, with no reliable short-cycle safety net.",
       "goals": [
-        "Implement reliable order lifecycle transitions across user and admin flows.",
-        "Support restaurant discovery and order operations through clean API contracts.",
-        "Provide dashboard-friendly data for operational visibility."
+        "Build a mobile-first insurance flow tailored for delivery riders.",
+        "Automate trigger detection and payout decisions at pincode granularity.",
+        "Keep decisions auditable with fallback escalation paths."
       ],
       "ownership": [
-        "Implemented backend APIs for restaurants, orders, and lifecycle state transitions.",
-        "Built admin workflows for order monitoring and revenue-level insights.",
-        "Connected frontend user journeys to backend business logic with consistent API contracts."
+        "Designed triage decisioning across rules, ML, and LLM-assisted reasoning.",
+        "Implemented backend workflows for monitoring, trigger evaluation, and payout flow.",
+        "Integrated rider-focused onboarding and policy interactions in Flutter app flow."
       ],
       "constraints": [
-        "Needed to prevent inconsistent order states during high activity windows.",
-        "Dashboard and transactional APIs had competing read/write performance demands."
+        "Needed precise zone-level trigger logic to avoid broad false payouts.",
+        "Had to keep interaction latency low for on-shift riders using only mobile devices."
       ],
       "architecture": [
-        "Express services manage business logic for ordering, tracking, and restaurant operations.",
-        "MongoDB supports operational data access patterns for both customer and admin views.",
-        "API aggregation endpoints power dashboard-level reporting requirements."
+        "FastAPI backend orchestrates policy, trigger, and payout workflows.",
+        "TriBrain decision engine (LangGraph): rules -> ML -> LLM fallback routing.",
+        "Flutter mobile client delivers onboarding, coverage, and payout status flows."
       ],
       "qualitySignals": [
-        "Lifecycle-driven APIs reduced state mismatches between client and server.",
-        "Aggregation endpoints simplified dashboard data fetching and reduced client complexity.",
-        "Backend contract consistency improved maintainability across product surfaces."
+        "Pincode-scoped trigger evaluation improved payout precision.",
+        "Tiered decisioning improved reliability with explainable routing.",
+        "Automated path reduced claim friction for riders."
       ],
       "impact": [
-        "Streamlined order operations across customer and admin experiences.",
-        "Improved operational visibility through analytics-oriented endpoints.",
-        "Maintained consistent lifecycle handling to reduce state mismatches."
+        "Converted income-protection concept into an implementable product flow.",
+        "Improved trust by reducing manual claim dependency.",
+        "Demonstrated practical fusion of rules, ML, and LLM orchestration."
       ],
       "challenges": [
-        "Coordinating multiple order states without race-condition style inconsistencies.",
-        "Keeping dashboard reporting responsive with growing operational data."
+        "Balancing fast automated payouts with false-positive risk control.",
+        "Designing clear policy boundaries and exclusions for real-world use."
       ],
       "nextSteps": [
-        "Add event-driven notifications for restaurant and delivery state changes.",
-        "Introduce caching for high-frequency dashboard queries."
+        "Expand trigger coverage with more reliable mobility and civic data feeds.",
+        "Strengthen simulation and backtesting for policy threshold tuning."
       ],
       "tags": [
-        "React.js",
-        "Node.js",
-        "Express.js",
-        "MongoDB"
+        "FastAPI",
+        "Python",
+        "LangGraph",
+        "Flutter",
+        "XGBoost",
+        "Supabase"
       ],
-      "date": "Oct 2025",
+      "date": "Apr 2026",
+      "status": "In Progress",
+      "bgColor": "bg-[#8B5CF6]",
+      "iconKey": "chart",
+      "coverImage": "/images/projects/saatdin.svg",
+      "github": "https://github.com/kireeti-ai/SaatDin"
+    },
+    {
+      "slug": "snapdish",
+      "title": "SnapDish - Multi-Role Food Delivery Platform",
+      "summary": "Built a full-stack food delivery ecosystem with separate apps for customers, restaurants, delivery agents, and platform admins.",
+      "description": "SnapDish combines ordering, operations, and delivery into one MERN platform with role-specific frontends and a centralized backend for lifecycle and analytics flows.",
+      "role": "Full-Stack Developer (Backend-focused)",
+      "projectType": "Full-Stack Product",
+      "timeline": "Dec 2025",
+      "focus": "Order lifecycle reliability, role-based workflows, operational analytics",
+      "problem": "Food delivery operations break down when order states, partner actions, and platform oversight are not coordinated in a single reliable workflow.",
+      "goals": [
+        "Implement clear end-to-end order states from checkout to delivery.",
+        "Support all platform actors with role-specific products.",
+        "Provide admin and restaurant insights with reporting dashboards."
+      ],
+      "ownership": [
+        "Implemented backend APIs for menus, carts, orders, and partner operations.",
+        "Connected four client apps to a common auth and order workflow.",
+        "Built analytics/reporting surfaces for admin and operational monitoring."
+      ],
+      "constraints": [
+        "Order transitions had to remain consistent under concurrent updates.",
+        "Dashboards required efficient querying across high-volume operational data."
+      ],
+      "architecture": [
+        "Node.js + Express backend exposes role-aware REST endpoints.",
+        "MongoDB stores user, restaurant, order, and transaction domain data.",
+        "Separate frontend apps: customer, restaurant-admin, delivery-agent, and main admin."
+      ],
+      "qualitySignals": [
+        "Role-specific app boundaries improved workflow clarity.",
+        "Central order-state model reduced fulfillment ambiguity.",
+        "Analytics-oriented endpoints improved operational visibility."
+      ],
+      "impact": [
+        "Enabled coordinated multi-actor delivery operations.",
+        "Improved traceability of order progress and exceptions.",
+        "Created a scalable base for future logistics and commerce enhancements."
+      ],
+      "challenges": [
+        "Synchronizing status updates across customer, restaurant, and rider views.",
+        "Balancing transaction-heavy APIs with dashboard read performance."
+      ],
+      "nextSteps": [
+        "Add event-driven notifications for all critical state transitions.",
+        "Introduce caching for high-frequency admin and restaurant analytics."
+      ],
+      "tags": [
+        "MongoDB",
+        "Express",
+        "React",
+        "Node.js",
+        "JWT",
+        "Cloudinary"
+      ],
+      "date": "Dec 2025",
       "status": "Completed",
       "bgColor": "bg-[#10B981]",
       "iconKey": "utensils",
@@ -241,63 +313,186 @@
     },
     {
       "slug": "air-quality-forecasting-system",
-      "title": "Air Quality Forecasting System",
-      "summary": "Built an AQI forecasting pipeline and benchmarked models to improve predictive performance.",
-      "description": "This project applies machine learning to air quality prediction, combining data analysis and model comparison to optimize AQI forecasting quality.",
+      "title": "Air Quality Prediction Platform",
+      "summary": "Built an end-to-end AQI prediction app with Flask model serving, React frontend, and OpenWeather integration.",
+      "description": "The project combines training notebooks and a production-style inference API to deliver city-level AQI prediction through a web interface.",
       "role": "ML + Backend Engineer",
       "projectType": "Data/ML Application",
-      "timeline": "Aug 2025",
-      "focus": "Regression modeling, feature analysis, model serving",
-      "problem": "AQI trends are influenced by multiple pollutants, making accurate forecasting difficult without careful model and feature selection.",
+      "timeline": "Nov 2025",
+      "focus": "Model serving, feature engineering, full-stack ML delivery",
+      "problem": "AQI forecasting requires combining noisy pollutant signals with practical serving architecture for real usage.",
       "goals": [
-        "Identify high-signal pollutant features for AQI prediction.",
-        "Benchmark model families and select the most reliable performer.",
-        "Serve predictions through an API-ready backend workflow."
+        "Train and evaluate AQI prediction models using pollutant features.",
+        "Expose prediction results through an API-backed application.",
+        "Provide a user-facing interface for real-time AQI insights."
       ],
       "ownership": [
-        "Conducted EDA to identify high-signal pollutant relationships.",
-        "Benchmarked regression algorithms and selected Random Forest as best performer.",
-        "Packaged model inference into a Flask-based serving workflow."
+        "Prepared and evaluated models in Jupyter notebooks using pollutant features.",
+        "Served RandomForestRegressor inference through a Flask backend.",
+        "Built React frontend workflows for real-time AQI prediction requests."
       ],
       "constraints": [
-        "Model performance needed to generalize instead of fitting only historical patterns.",
-        "Serving pipeline had to remain simple enough for practical integration."
+        "Prediction quality depended on external API signal consistency.",
+        "Model output had to remain understandable for non-ML users."
       ],
       "architecture": [
-        "Data preprocessing and feature engineering pipeline feeds candidate models.",
-        "Model evaluation workflow compares algorithms using consistent validation criteria.",
-        "Flask endpoint serves AQI predictions for application-level consumption."
+        "Notebook pipeline trains and validates a RandomForestRegressor (500 estimators).",
+        "Flask API performs inference via persisted model artifacts.",
+        "React frontend consumes API responses and renders AQI prediction details."
       ],
       "qualitySignals": [
-        "Model evaluation pipeline ensured like-for-like comparisons across algorithms.",
-        "Feature analysis reduced noise and improved interpretability of predictions.",
-        "API-based serving made the model usable beyond notebook experimentation."
+        "8-feature pollutant model design improved prediction consistency.",
+        "Separation of training and serving improved maintainability.",
+        "Docker-based setup supported reproducible local deployment."
       ],
       "impact": [
-        "Achieved an R² score of 87% with Random Forest.",
-        "Improved model reliability by grounding feature selection in EDA findings.",
-        "Made forecasting usable through an API-oriented serving layer."
+        "Delivered practical AQI prediction in an accessible web interface.",
+        "Connected ML experimentation to a usable application workflow.",
+        "Created a foundation for city-level trend and historical analysis."
       ],
       "challenges": [
-        "Avoiding overfitting while optimizing for higher predictive accuracy.",
-        "Translating offline model performance into a practical serving workflow."
+        "Stabilizing prediction quality across changing environmental signals.",
+        "Bridging notebook experimentation with production-style API serving."
       ],
       "nextSteps": [
-        "Add periodic retraining with fresh environmental data.",
-        "Track model drift and confidence bands in prediction responses."
+        "Add historical trend visualizations and batch predictions.",
+        "Introduce scheduled retraining and drift monitoring."
       ],
       "tags": [
         "Python",
-        "Scikit-Learn",
+        "Flask",
+        "Scikit-learn",
         "Random Forest",
-        "Flask"
+        "React",
+        "Docker"
       ],
-      "date": "Aug 2025",
+      "date": "Nov 2025",
       "status": "Completed",
       "bgColor": "bg-[#F59E0B]",
       "iconKey": "chart",
       "coverImage": "/images/projects/air-quality-forecasting-system.svg",
-      "github": "https://github.com/kireeti-ai"
+      "github": "https://github.com/kireeti-ai/air-quality-prediction"
+    },
+    {
+      "slug": "mobile-network-simulation-system",
+      "title": "Mobile Network Simulation System",
+      "summary": "Built a graph-based cellular network simulator with dynamic tower handover, call routing, and multi-network switching.",
+      "description": "A Python simulation that models network zones, towers, users, movement, and call behavior with explicit handling for out-of-coverage scenarios.",
+      "role": "Systems Developer",
+      "projectType": "Systems Simulation Project",
+      "timeline": "Sep 2025",
+      "focus": "Network simulation, routing logic, mobility modeling",
+      "problem": "Understanding tower handover and call routing behavior is difficult without a controllable simulation environment.",
+      "goals": [
+        "Model network zones with tower coverage and user mobility.",
+        "Simulate automatic handover as users move between coverage areas.",
+        "Route calls through towers and switching centers with error handling."
+      ],
+      "ownership": [
+        "Implemented simulation flow and interactive CLI controls.",
+        "Built movement and nearest-tower selection logic for connectivity.",
+        "Added call-path and network-switching capabilities."
+      ],
+      "constraints": [
+        "Coverage behavior needed deterministic rules for reproducible outcomes.",
+        "Simulation had to handle disconnected users gracefully."
+      ],
+      "architecture": [
+        "Graph-style network representation connects towers and network zones.",
+        "Runtime engine tracks users, movement events, and connection state.",
+        "Call orchestration models pathing through connected network components."
+      ],
+      "qualitySignals": [
+        "Structured simulation entities improved maintainability.",
+        "Input validation and explicit failure states reduced runtime ambiguity.",
+        "Clear handover logic made mobility behavior easier to inspect."
+      ],
+      "impact": [
+        "Created an educational testbed for telecom-style behavior.",
+        "Made network handover and routing dynamics observable.",
+        "Demonstrated practical systems thinking around state transitions."
+      ],
+      "challenges": [
+        "Coordinating user movement with connection consistency.",
+        "Preserving call reliability across dynamic connectivity changes."
+      ],
+      "nextSteps": [
+        "Add visualization for tower coverage and active call paths.",
+        "Introduce simulation metrics (handover rate, dropped-call rate)."
+      ],
+      "tags": [
+        "Python",
+        "Graph Algorithms",
+        "Simulation",
+        "CLI"
+      ],
+      "date": "Sep 2025",
+      "status": "Completed",
+      "bgColor": "bg-[#2F81F7]",
+      "iconKey": "eye",
+      "coverImage": "/images/projects/mobile-network-simulation-system.svg",
+      "github": "https://github.com/kireeti-ai/Network-simulation"
+    },
+    {
+      "slug": "banking-transaction-api",
+      "title": "Banking Transaction API",
+      "summary": "Built a Spring Boot banking backend for account operations, deposits, withdrawals, transfers, and transaction history.",
+      "description": "A Java backend service using Spring Data JPA for account and transaction management, with PostgreSQL persistence and REST APIs for core banking flows.",
+      "role": "Backend Developer",
+      "projectType": "Backend API Project",
+      "timeline": "Dec 2025",
+      "focus": "Transactional API design, account lifecycle, data persistence",
+      "problem": "Core banking workflows require reliable account state updates and auditable transaction flows.",
+      "goals": [
+        "Implement account CRUD and account-type updates through REST endpoints.",
+        "Support deposit, withdrawal, and account-to-account transfer operations.",
+        "Provide account-based transaction retrieval for history and auditing."
+      ],
+      "ownership": [
+        "Implemented account and transaction controllers for banking operations.",
+        "Built service-layer logic for balance updates and transfer bookkeeping.",
+        "Integrated JPA repositories for account and transaction persistence."
+      ],
+      "constraints": [
+        "Balance validation was required to prevent invalid withdrawals/transfers.",
+        "Transaction history needed to stay linked to account identifiers."
+      ],
+      "architecture": [
+        "Spring Boot REST API with controller-service-repository layering.",
+        "Spring Data JPA repositories manage Account and Transaction entities.",
+        "PostgreSQL-backed persistence configured through application properties."
+      ],
+      "qualitySignals": [
+        "Clear service-layer separation improved maintainability.",
+        "Validation checks enforce amount and balance safety rules.",
+        "Transfer flow writes debit/credit records for both accounts."
+      ],
+      "impact": [
+        "Delivered complete baseline banking transaction workflows.",
+        "Created reusable backend patterns for financial operations projects.",
+        "Improved practical experience with Java API and persistence design."
+      ],
+      "challenges": [
+        "Keeping account balance updates consistent across operation types.",
+        "Designing concise API responses for both success and error paths."
+      ],
+      "nextSteps": [
+        "Add authentication/authorization enforcement for protected routes.",
+        "Introduce stronger transaction consistency controls and test coverage."
+      ],
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "Spring Data JPA",
+        "PostgreSQL",
+        "REST API"
+      ],
+      "date": "Dec 2025",
+      "status": "Completed",
+      "bgColor": "bg-[#10B981]",
+      "iconKey": "utensils",
+      "coverImage": "/images/projects/banking-transaction-api.svg",
+      "github": "https://github.com/kireeti-ai/bank"
     }
   ],
   "skills": [
