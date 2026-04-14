@@ -78,7 +78,7 @@ const defaultContent: PortfolioContent = {
     phone: "+91-9392509139",
     location: "Coimbatore, India",
     githubUrl: "https://github.com/kireeti-ai",
-    linkedinUrl: "https://linkedin.com/in/kireeti",
+    linkedinUrl: "https://linkedin.com/in/kireeti-v",
     resumeUrl: "/kireeti_resume.pdf",
   },
 }

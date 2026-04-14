@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { Send, Mail, MapPin, Phone, CheckCircle, AlertCircle } from "lucide-react"
+import { Send, Mail, MapPin, Phone, Linkedin, CheckCircle, AlertCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import type { ProfileContent } from "@/lib/portfolio-types"
@@ -62,6 +62,7 @@ export function ContactSection({ profile }: ContactSectionProps) {
       value: profile.email,
       href: `mailto:${profile.email}`,
       color: "bg-[#6366F1]",
+      external: false,
     },
     {
       icon: <Phone className="w-6 h-6" />,
@@ -69,6 +70,15 @@ export function ContactSection({ profile }: ContactSectionProps) {
       value: profile.phone,
       href: `tel:${profile.phone.replace(/\s+/g, "")}`,
       color: "bg-[#2F81F7]",
+      external: false,
+    },
+    {
+      icon: <Linkedin className="w-6 h-6" />,
+      label: "LinkedIn",
+      value: profile.linkedinUrl.replace(/^https?:\/\/(www\.)?/, ""),
+      href: profile.linkedinUrl,
+      color: "bg-[#0077B5]",
+      external: true,
     },
     {
       icon: <MapPin className="w-6 h-6" />,
@@ -76,6 +86,7 @@ export function ContactSection({ profile }: ContactSectionProps) {
       value: profile.location,
       href: "#",
       color: "bg-[#FF6B7A]",
+      external: false,
     },
   ]
 
@@ -111,6 +122,8 @@ export function ContactSection({ profile }: ContactSectionProps) {
                 <motion.a
                   key={index}
                   href={info.href}
+                  target={info.external ? "_blank" : undefined}
+                  rel={info.external ? "noopener noreferrer" : undefined}
                   className="flex items-center gap-4 p-4 bg-white border-[3px] border-black rounded-2xl hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all"
                   initial={{ opacity: 0, x: -30 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}

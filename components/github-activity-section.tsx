@@ -244,7 +244,23 @@ export function GitHubActivitySection() {
               </div>
             </div>
 
-            <div className="relative overflow-x-auto pb-2">
+            <div className="space-y-4 md:hidden">
+              <p className="text-sm font-medium leading-relaxed text-white/70">
+                The full contribution heatmap is optimized for larger screens. On mobile, open GitHub to explore the complete
+                day-by-day graph.
+              </p>
+              <a
+                href="https://github.com/kireeti-ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border-2 border-white/30 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/20"
+              >
+                <Github className="h-4 w-4" />
+                View full GitHub activity
+              </a>
+            </div>
+
+            <div className="relative hidden overflow-x-auto pb-2 md:block">
               <motion.div
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-white/8 to-transparent"

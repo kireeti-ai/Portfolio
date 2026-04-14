@@ -16,7 +16,7 @@ export function MobileMenu() {
 
   const socialLinks = [
     { icon: <Github className="w-6 h-6" />, href: "https://github.com/kireeti-ai", label: "GitHub" },
-    { icon: <Linkedin className="w-6 h-6" />, href: "https://linkedin.com/in/kireeti", label: "LinkedIn" },
+    { icon: <Linkedin className="w-6 h-6" />, href: "https://linkedin.com/in/kireeti-v", label: "LinkedIn" },
     { icon: <Mail className="w-6 h-6" />, href: "mailto:kireetiv2005@gmail.com", label: "Email" },
   ]
 
@@ -48,9 +48,9 @@ export function MobileMenu() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 w-[80%] max-w-sm h-full bg-white z-50 border-l-4 border-black shadow-[-8px_0px_0px_0px_rgba(0,0,0,1)]"
+              className="fixed top-0 right-0 h-full w-[85%] max-w-sm overflow-y-auto bg-white z-50 border-l-4 border-black shadow-[-8px_0px_0px_0px_rgba(0,0,0,1)]"
             >
-              <div className="p-6">
+              <div className="flex min-h-full flex-col p-6">
                 <div className="flex justify-between items-center mb-8">
                   <span className="text-2xl font-bold">Menu</span>
                   <motion.button
@@ -102,7 +102,7 @@ export function MobileMenu() {
                 </div>
 
                 <motion.div
-                  className="absolute bottom-8 left-6 right-6"
+                  className="mt-8"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
