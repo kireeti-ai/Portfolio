@@ -35,6 +35,88 @@ function serializeMultiline(items: string[]) {
   return items.join("\n")
 }
 
+function isValidProject(project: Project) {
+  return Boolean(
+    project.slug.trim() &&
+    project.title.trim() &&
+    project.summary.trim() &&
+    project.description.trim() &&
+    project.role.trim() &&
+    project.projectType.trim() &&
+    project.timeline.trim() &&
+    project.focus.trim() &&
+    project.problem.trim() &&
+    project.goals.length > 0 &&
+    project.ownership.length > 0 &&
+    project.constraints.length > 0 &&
+    project.architecture.length > 0 &&
+    project.qualitySignals.length > 0 &&
+    project.impact.length > 0 &&
+    project.challenges.length > 0 &&
+    project.nextSteps.length > 0 &&
+    project.tags.length > 0 &&
+    project.date.trim() &&
+    statusChoices.includes(project.status) &&
+    project.bgColor.trim() &&
+    iconKeyChoices.includes(project.iconKey) &&
+    project.coverImage.trim() &&
+    project.github.trim(),
+  )
+}
+
+function isValidSkill(skill: AdminSkill) {
+  return Boolean(skill.title.trim() && skill.description.trim() && skill.bgColor.trim())
+}
+
+function isValidTechnology(technology: AdminTechnology) {
+  return Boolean(technology.name.trim() && technology.color.trim())
+}
+
+function getContentValidationError(content: PortfolioContentData) {
+  const invalidProjectIndex = content.projects.findIndex((project) => !isValidProject(project))
+  if (invalidProjectIndex >= 0) {
+    return `Project ${invalidProjectIndex + 1} has required fields that are still empty.`
+  }
+
+  const invalidSkillIndex = content.skills.findIndex((skill) => !isValidSkill(skill))
+  if (invalidSkillIndex >= 0) {
+    return `Skill card ${invalidSkillIndex + 1} has required fields that are still empty.`
+  }
+
+  const invalidTechnologyIndex = content.technologies.findIndex((technology) => !isValidTechnology(technology))
+  if (invalidTechnologyIndex >= 0) {
+    return `Tech marquee item ${invalidTechnologyIndex + 1} has required fields that are still empty.`
+  }
+
+  const profile = content.profile
+  if (
+    !profile.name.trim() ||
+    !profile.roleBadge.trim() ||
+    !profile.heroIntro.trim() ||
+    !profile.heroHighlight.trim() ||
+    !profile.heroSubheadline.trim() ||
+    !profile.heroDescription.trim() ||
+    profile.heroSkills.length === 0 ||
+    !profile.aboutDescription.trim() ||
+    !profile.educationTitle.trim() ||
+    !profile.educationDescription.trim() ||
+    !profile.certificationsTitle.trim() ||
+    !profile.certificationsDescription.trim() ||
+    !profile.opportunitiesText.trim() ||
+    !profile.footerBio.trim() ||
+    !profile.email.trim() ||
+    !profile.phone.trim() ||
+    !profile.location.trim() ||
+    !profile.githubUrl.trim() ||
+    !profile.linkedinUrl.trim() ||
+    !profile.resumeUrl.trim()
+  ) {
+    return "Profile & contact fields must all be filled before saving."
+  }
+
+  return null
+}
+
 function createEmptyProject(index: number): Project {
   return {
     slug: `new-project-${index + 1}`,
@@ -74,6 +156,7 @@ export function AdminPanel({ initialContent }: AdminPanelProps) {
   const [statusMessage, setStatusMessage] = useState("")
   const [errorMessage, setErrorMessage] = useState("")
   const [saving, setSaving] = useState(false)
+  const validationError = useMemo(() => getContentValidationError(content), [content])
 
   const selectedProject = content.projects[selectedProjectIndex]
   const selectedSkill = content.skills[selectedSkillIndex]
@@ -97,6 +180,12 @@ export function AdminPanel({ initialContent }: AdminPanelProps) {
   }
 
   async function saveContent() {
+    if (validationError) {
+      setStatusMessage("")
+      setErrorMessage(validationError)
+      return
+    }
+
     setSaving(true)
     setStatusMessage("")
     setErrorMessage("")
@@ -139,7 +228,8 @@ export function AdminPanel({ initialContent }: AdminPanelProps) {
           <div className="flex items-center gap-2">
             <button
               onClick={saveContent}
-              disabled={saving}
+              disabled={saving || Boolean(validationError)}
+              title={validationError ?? undefined}
               className="rounded-md bg-black px-4 py-2 text-sm font-semibold text-white hover:bg-[#1F1F1F] disabled:opacity-60"
             >
               {saving ? "Saving..." : "Save changes"}
@@ -155,6 +245,7 @@ export function AdminPanel({ initialContent }: AdminPanelProps) {
 
         {statusMessage ? <p className="text-sm font-semibold text-[#166534]">{statusMessage}</p> : null}
         {errorMessage ? <p className="text-sm font-semibold text-[#B91C1C]">{errorMessage}</p> : null}
+        {!errorMessage && validationError ? <p className="text-sm font-semibold text-[#B91C1C]">{validationError}</p> : null}
 
         <section className="rounded-2xl border-2 border-black bg-white p-5">
           <h2 className="mb-4 text-xl font-bold text-[#0B0B0B]">Profile & Contact</h2>
