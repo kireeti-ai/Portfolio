@@ -16,6 +16,13 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Password is required." }, { status: 400 })
   }
 
+  if (adminPassword === "your-strong-password") {
+    return NextResponse.json(
+      { error: "ADMIN_PASSWORD is still set to the placeholder value in .env. Set a real password and retry." },
+      { status: 500 },
+    )
+  }
+
   if (body.password !== adminPassword) {
     return NextResponse.json({ error: "Invalid password." }, { status: 401 })
   }

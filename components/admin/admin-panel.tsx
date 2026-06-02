@@ -35,17 +35,17 @@ function serializeMultiline(items: string[]) {
   return items.join("\n")
 }
 
-function createEmptyProject(): Project {
+function createEmptyProject(index: number): Project {
   return {
-    slug: "",
-    title: "",
-    summary: "",
-    description: "",
-    role: "",
-    projectType: "",
-    timeline: "",
-    focus: "",
-    problem: "",
+    slug: `new-project-${index + 1}`,
+    title: "New Project",
+    summary: "Short summary of the project.",
+    description: "Detailed description of the project.",
+    role: "Contributor",
+    projectType: "Portfolio Project",
+    timeline: "2026",
+    focus: "Project focus",
+    problem: "Problem statement",
     goals: [],
     ownership: [],
     constraints: [],
@@ -55,12 +55,12 @@ function createEmptyProject(): Project {
     challenges: [],
     nextSteps: [],
     tags: [],
-    date: "",
+    date: "2026",
     status: "In Progress",
     bgColor: "bg-[#6366F1]",
     iconKey: "brain",
-    coverImage: "/images/projects/",
-    github: "https://github.com/",
+    coverImage: "/images/projects/new-project.svg",
+    github: "https://github.com/your-repo",
   }
 }
 
@@ -391,9 +391,8 @@ export function AdminPanel({ initialContent }: AdminPanelProps) {
               <button
                 key={`${project.slug}-${index}`}
                 onClick={() => setSelectedProjectIndex(index)}
-                className={`rounded-md border-2 px-3 py-1 text-xs font-semibold ${
-                  index === selectedProjectIndex ? "border-black bg-black text-white" : "border-black/30 bg-white text-[#0B0B0B]"
-                }`}
+                className={`rounded-md border-2 px-3 py-1 text-xs font-semibold ${index === selectedProjectIndex ? "border-black bg-black text-white" : "border-black/30 bg-white text-[#0B0B0B]"
+                  }`}
               >
                 {project.title || `Project ${index + 1}`}
               </button>
@@ -403,8 +402,9 @@ export function AdminPanel({ initialContent }: AdminPanelProps) {
           <div className="mb-4 flex gap-2">
             <button
               onClick={() => {
-                setContent((previous) => ({ ...previous, projects: [...previous.projects, createEmptyProject()] }))
-                setSelectedProjectIndex(content.projects.length)
+                const nextIndex = content.projects.length
+                setContent((previous) => ({ ...previous, projects: [...previous.projects, createEmptyProject(nextIndex)] }))
+                setSelectedProjectIndex(nextIndex)
               }}
               className="rounded-md bg-[#111827] px-3 py-2 text-xs font-semibold text-white"
             >
@@ -605,9 +605,8 @@ export function AdminPanel({ initialContent }: AdminPanelProps) {
               <button
                 key={`${skill.title}-${index}`}
                 onClick={() => setSelectedSkillIndex(index)}
-                className={`rounded-md border-2 px-3 py-1 text-xs font-semibold ${
-                  index === selectedSkillIndex ? "border-black bg-black text-white" : "border-black/30 bg-white text-[#0B0B0B]"
-                }`}
+                className={`rounded-md border-2 px-3 py-1 text-xs font-semibold ${index === selectedSkillIndex ? "border-black bg-black text-white" : "border-black/30 bg-white text-[#0B0B0B]"
+                  }`}
               >
                 {skill.title || `Skill ${index + 1}`}
               </button>
@@ -616,11 +615,19 @@ export function AdminPanel({ initialContent }: AdminPanelProps) {
           <div className="mb-4 flex gap-2">
             <button
               onClick={() => {
+                const nextIndex = content.skills.length
                 setContent((previous) => ({
                   ...previous,
-                  skills: [...previous.skills, { title: "", description: "", bgColor: "bg-[#6366F1]" }],
+                  skills: [
+                    ...previous.skills,
+                    {
+                      title: "New Skill",
+                      description: "Describe the skill here.",
+                      bgColor: "bg-[#6366F1]",
+                    },
+                  ],
                 }))
-                setSelectedSkillIndex(content.skills.length)
+                setSelectedSkillIndex(nextIndex)
               }}
               className="rounded-md bg-[#111827] px-3 py-2 text-xs font-semibold text-white"
             >
