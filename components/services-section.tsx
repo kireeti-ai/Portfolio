@@ -73,7 +73,32 @@ export function ServicesSection({ skills }: ServicesSectionProps) {
                   className="bg-white border-[3px] border-black rounded-[32px] overflow-hidden transition-all duration-300 flex flex-col group cursor-pointer"
                 >
                   <div className={`${skill.bgColor} px-8 py-6`}>
-                    <h3 className="text-[24px] leading-[32px] font-bold text-white">{skill.title}</h3>
+                    <h3 className="text-[24px] leading-[32px] font-bold text-white mb-3">{skill.title}</h3>
+                    {skill.technologies && skill.technologies.length > 0 && (
+                      <div className="flex flex-wrap gap-3">
+                        {skill.technologies.map((tech, techIdx) => (
+                          <div
+                            key={techIdx}
+                            className="flex items-center gap-1.5 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1.5"
+                          >
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                              src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${tech.icon}/${tech.icon}-original.svg`}
+                              alt={tech.name}
+                              width={20}
+                              height={20}
+                              className="w-5 h-5"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.onerror = null;
+                                target.src = `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${tech.icon}/${tech.icon}-plain.svg`;
+                              }}
+                            />
+                            <span className="text-white text-xs font-semibold">{tech.name}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                   <div className="px-8 py-8 flex-1 flex flex-col">
                     <p className="text-[16px] leading-[26px] font-medium text-[#393939]">{skill.description}</p>

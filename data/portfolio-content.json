@@ -59,7 +59,7 @@
       "status": "In Progress",
       "bgColor": "bg-[#6366F1]",
       "iconKey": "brain",
-      "coverImage": "/images/projects/docpulseai.svg",
+      "coverImage": "/images/projects/docpulseai.png",
       "github": "https://github.com/kireeti-ai/ci-living-documentation"
     },
     {
@@ -121,7 +121,7 @@
       "status": "Completed",
       "bgColor": "bg-[#2F81F7]",
       "iconKey": "eye",
-      "coverImage": "/images/projects/edge-co-intelligence-system.svg",
+      "coverImage": "/images/projects/edge-co-intelligence-system.png",
       "github": "https://github.com/kireeti-ai/distributed-edge-ai-inference"
     },
     {
@@ -184,7 +184,7 @@
       "status": "Completed",
       "bgColor": "bg-[#FF6B7A]",
       "iconKey": "zap",
-      "coverImage": "/images/projects/quizora-ai.svg",
+      "coverImage": "/images/projects/quizora-ai.png",
       "github": "https://github.com/kireeti-ai/Quizora-ai"
     },
     {
@@ -246,7 +246,7 @@
       "status": "In Progress",
       "bgColor": "bg-[#8B5CF6]",
       "iconKey": "chart",
-      "coverImage": "/images/projects/saatdin.svg",
+      "coverImage": "/images/projects/saatdin.png",
       "github": "https://github.com/kireeti-ai/SaatDin"
     },
     {
@@ -308,7 +308,7 @@
       "status": "Completed",
       "bgColor": "bg-[#10B981]",
       "iconKey": "utensils",
-      "coverImage": "/images/projects/snapdish.svg",
+      "coverImage": "/images/projects/snapdish.png",
       "github": "https://github.com/kireeti-ai/Snap-dish"
     },
     {
@@ -370,7 +370,7 @@
       "status": "Completed",
       "bgColor": "bg-[#F59E0B]",
       "iconKey": "chart",
-      "coverImage": "/images/projects/air-quality-forecasting-system.svg",
+      "coverImage": "/images/projects/air-quality-forecasting-system.png",
       "github": "https://github.com/kireeti-ai/air-quality-prediction"
     },
     {
@@ -430,7 +430,7 @@
       "status": "Completed",
       "bgColor": "bg-[#2F81F7]",
       "iconKey": "eye",
-      "coverImage": "/images/projects/mobile-network-simulation-system.svg",
+      "coverImage": "/images/projects/mobile-network-simulation-system.png",
       "github": "https://github.com/kireeti-ai/Network-simulation"
     },
     {
@@ -491,7 +491,7 @@
       "status": "Completed",
       "bgColor": "bg-[#10B981]",
       "iconKey": "utensils",
-      "coverImage": "/images/projects/banking-transaction-api.svg",
+      "coverImage": "/images/projects/banking-transaction-api.png",
       "github": "https://github.com/kireeti-ai/bank"
     }
   ],
@@ -499,32 +499,67 @@
     {
       "title": "Languages",
       "description": "Java, Python, C/C++, JavaScript - Strong foundation in multiple programming paradigms.",
-      "bgColor": "bg-[#6366F1]"
+      "bgColor": "bg-[#6366F1]",
+      "technologies": [
+        { "name": "Java", "icon": "java" },
+        { "name": "Python", "icon": "python" },
+        { "name": "C++", "icon": "cplusplus" },
+        { "name": "JavaScript", "icon": "javascript" }
+      ]
     },
     {
       "title": "Backend Frameworks",
       "description": "Spring Boot, Node.js, Express.js, FastAPI - Building scalable and secure REST APIs.",
-      "bgColor": "bg-[#2F81F7]"
+      "bgColor": "bg-[#2F81F7]",
+      "technologies": [
+        { "name": "Spring", "icon": "spring" },
+        { "name": "Node.js", "icon": "nodejs" },
+        { "name": "Express", "icon": "express" },
+        { "name": "FastAPI", "icon": "fastapi" }
+      ]
     },
     {
       "title": "Frontend",
       "description": "React.js - Creating responsive and interactive user interfaces with modern patterns.",
-      "bgColor": "bg-[#FF6B7A]"
+      "bgColor": "bg-[#FF6B7A]",
+      "technologies": [
+        { "name": "React", "icon": "react" },
+        { "name": "Angular", "icon": "angular" },
+        { "name": "HTML5", "icon": "html5" },
+        { "name": "CSS3", "icon": "css3" }
+      ]
     },
     {
       "title": "Databases",
       "description": "MySQL, MongoDB (NoSQL), PostgreSQL - Relational and document-based data management.",
-      "bgColor": "bg-[#10B981]"
+      "bgColor": "bg-[#10B981]",
+      "technologies": [
+        { "name": "MySQL", "icon": "mysql" },
+        { "name": "MongoDB", "icon": "mongodb" },
+        { "name": "PostgreSQL", "icon": "postgresql" }
+      ]
     },
     {
       "title": "Cloud & DevOps",
       "description": "AWS, Azure (ACA, ACR, Blob Storage), Git, GitHub - Cloud deployment and version control.",
-      "bgColor": "bg-[#F59E0B]"
+      "bgColor": "bg-[#F59E0B]",
+      "technologies": [
+        { "name": "AWS", "icon": "amazonwebservices" },
+        { "name": "Azure", "icon": "azure" },
+        { "name": "Docker", "icon": "docker" },
+        { "name": "Git", "icon": "git" }
+      ]
     },
     {
       "title": "ML & AI",
       "description": "Pandas, NumPy, Scikit-learn, YOLOv8 - Machine learning and computer vision applications.",
-      "bgColor": "bg-[#8B5CF6]"
+      "bgColor": "bg-[#8B5CF6]",
+      "technologies": [
+        { "name": "Pandas", "icon": "pandas" },
+        { "name": "NumPy", "icon": "numpy" },
+        { "name": "Scikit-learn", "icon": "scikitlearn" },
+        { "name": "TensorFlow", "icon": "tensorflow" }
+      ]
     }
   ],
   "technologies": [

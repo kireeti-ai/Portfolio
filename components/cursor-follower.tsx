@@ -25,20 +25,31 @@ export function CursorFollower() {
       setIsVisible(true)
     }
 
+    let lastHoveredState = false
+
     const handleMouseEnter = (e: MouseEvent) => {
       if (!(e.target instanceof Element)) {
-        setIsHovering(false)
+        if (lastHoveredState !== false) {
+          lastHoveredState = false
+          setIsHovering(false)
+        }
         return
       }
 
       const isInteractive =
         e.target.matches("a, button, .cursor-pointer") || Boolean(e.target.closest("a, button, .cursor-pointer"))
 
-      setIsHovering(isInteractive)
+      if (isInteractive !== lastHoveredState) {
+        lastHoveredState = isInteractive
+        setIsHovering(isInteractive)
+      }
     }
 
     const handleMouseLeave = () => {
-      setIsHovering(false)
+      if (lastHoveredState !== false) {
+        lastHoveredState = false
+        setIsHovering(false)
+      }
     }
 
     window.addEventListener("mousemove", moveCursor)

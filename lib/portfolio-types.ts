@@ -4,6 +4,7 @@ export interface AdminSkill {
   title: string
   description: string
   bgColor: string
+  technologies?: { name: string; icon: string }[]
 }
 
 export interface AdminTechnology {

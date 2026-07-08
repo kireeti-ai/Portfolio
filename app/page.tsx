@@ -23,12 +23,12 @@ export default async function Home() {
         <Navigation />
         <HeroSection profile={content.profile} />
         <TechMarquee items={content.technologies} />
-        <StatsSection />
-        <GitHubActivitySection />
         <AboutSection profile={content.profile} />
+        <ExperienceSection />
+        <StatsSection />
         <ServicesSection skills={content.skills} />
         <PortfolioSection projects={content.projects} />
-        <ExperienceSection />
+        <GitHubActivitySection />
         <ContactSection profile={content.profile} />
         <Footer profile={content.profile} technologies={content.technologies} />
         <ScrollToTop />
