@@ -25,7 +25,7 @@ const Hero = () => {
 
           <p className="text-xl text-gray-400 mb-8 leading-relaxed font-sans border-l-2 border-[#333] pl-6">
             Aspiring SDE specializing in <span className="text-white">High-Scale Backend</span> & <span className="text-white">Intelligent Systems</span>.
-            Currently architecting solutions at <span className="text-[#00ff9d]">Amrita Vishwa Vidyapeetham</span>.
+            Currently building solutions at <span className="text-[#00ff9d]">Amrita Vishwa Vidyapeetham</span>.
           </p>
 
           <div className="flex flex-wrap gap-4">

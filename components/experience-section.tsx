@@ -97,12 +97,12 @@ export function ExperienceSection() {
     },
     {
       title: "Backend Development",
-      description: "Building robust, scalable APIs and microservices using Spring Boot, Node.js, and FastAPI.",
+      description: "Building robust, scalable APIs and microservices.",
       color: "bg-[#2F81F7]",
     },
     {
       title: "Cloud Computing",
-      description: "Deploying containerized applications on AWS and Azure with modern DevOps practices.",
+      description: "Deploying containerized applications on AWS (S3, EC2, IAM, RDS, Lambda, ECR, ECS, EKS) and Azure with modern DevOps practices.",
       color: "bg-[#FF6B7A]",
     },
   ]

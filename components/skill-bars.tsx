@@ -66,7 +66,7 @@ export function SkillBars() {
               Skill <span className="bg-[#6366F1] text-white px-3 py-1 inline-block">Proficiency</span>
             </h2>
             <p className="text-[#393939] text-base md:text-lg font-medium">
-              My technical expertise across different technologies and frameworks.
+              My technical skills across different technologies and frameworks.
             </p>
           </motion.div>
 

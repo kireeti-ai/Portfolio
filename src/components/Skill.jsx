@@ -18,7 +18,6 @@ const categories = {
       { name: "Java", icon: <FaJava color="#f89820" /> },
       { name: "Python", icon: <FaPython color="#3776ab" /> },
       { name: "JavaScript", icon: <FaJs color="#f7df1e" /> },
-      { name: "C / C++", icon: <Code color="#555" /> }, // Using generic code icon for C
       { name: "SQL", icon: <Database color="#ddd" /> }
     ]
   },
@@ -52,12 +51,13 @@ const categories = {
   },
   "DEVOPS": {
     icon: <Cpu size={20} />,
-    description: "CI/CD, Cloud & Containerization.",
+    description: "CI/CD, Cloud & Containerization. Hands-on with AWS (S3, EC2, IAM, RDS, Lambda, ECR, ECS, EKS).",
     tech: [
       { name: "AWS", icon: <FaAws color="#ff9900" /> },
       { name: "Docker", icon: <FaDocker color="#2496ed" /> },
       { name: "Linux", icon: <FaLinux color="#fff" /> },
-      { name: "Git", icon: <FaGitAlt color="#f05032" /> }
+      { name: "Git", icon: <FaGitAlt color="#f05032" /> },
+      { name: "Agile / Scrum", icon: <Layers color="#fff" /> }
     ]
   },
   "TOOLS": {

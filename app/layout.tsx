@@ -21,7 +21,7 @@ const onest = Onest({
 
 export const metadata: Metadata = {
   title: "Kireeti - Software Developer Portfolio",
-  description: "Pre-final year B.Tech Computer Science student with hands-on experience in software development, backend systems, and cloud platforms.",
+  description: "Final year B.Tech Computer Science student with hands-on experience in software development, backend systems, and cloud platforms.",
   generator: "v0.app",
 }
 

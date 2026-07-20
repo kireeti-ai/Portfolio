@@ -58,10 +58,10 @@ const About = () => {
           {/* The Professional Bio */}
           <div className="space-y-6 text-gray-400 text-lg leading-relaxed mb-10 font-sans border-l-2 border-[#333] pl-6">
             <p>
-              I am a <span className="text-white font-semibold">Full-Stack Architect</span> in training, currently decoding complex systems at <span className="text-[#00ff9d]">Amrita Vishwa Vidyapeetham</span>.
+              I am a <span className="text-white font-semibold">Software Developer</span> in training, currently decoding complex systems at <span className="text-[#00ff9d]">Amrita Vishwa Vidyapeetham</span>.
             </p>
             <p>
-              My expertise lies in engineering <span className="text-white">high-performance backends</span> using Java & Spring Boot, while crafting intuitive frontend experiences. I bridge the gap between abstract logic and user interaction, with a focus on integrating <span className="text-[#00ff9d]">Machine Learning</span> pipelines into production web environments.
+              My focus lies in engineering <span className="text-white">high-performance backends</span> using Java & Spring Boot, while crafting intuitive frontend experiences. I bridge the gap between abstract logic and user interaction, with a focus on integrating <span className="text-[#00ff9d]">Machine Learning</span> pipelines into live web applications.
             </p>
           </div>
 
@@ -85,7 +85,7 @@ const About = () => {
 
               <div className="flex items-center gap-3 text-gray-300">
                 <Briefcase size={16} className="text-[#00ff9d]" />
-                <span>Exp: <span className="text-gray-500">Pre-Final Year</span></span>
+                <span>Exp: <span className="text-gray-500">Final Year</span></span>
               </div>
 
               <div className="flex items-center gap-3 text-gray-300">
